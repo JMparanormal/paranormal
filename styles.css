@@ -117,6 +117,9 @@ p{margin:0 0 12px}
 
 /* HERO — výraznejší obrázok + správne 3 vrstvy pozadia */
 .hero{
+  --hero-bg: url('exorcisti.png');
+}
+
   padding:82px 0 56px;
   position:relative;
   overflow:hidden;
@@ -236,16 +239,13 @@ textarea{min-height:150px;resize:vertical}
 
 .pillrow{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
 
-/* 📱 Mobil bude používať iný hero obrázok */
+
 @media (max-width: 768px){
   .hero{
     --hero-bg: url('exorcisti-mobile.png');
   }
-
-  .hero::before{
-    background-position: 0 0, 0 0, 50% 50%;
-  }
 }
+
 
 
 

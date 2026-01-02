@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="sk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cenník – Očista priestoru</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="index.html"><span class="brand-badge"></span><span>Očista Priestoru</span></a>
+    <nav class="menu">
+      <a href="index.html">Domov</a>
+      <a href="sluzby.html">Služby</a>
+      <a href="ako-pracujem.html">Ako pracujem</a>
+      <a href="cennik.html">Cenník</a>
+      <a href="kontakt.html" class="btn">Kontakt</a>
+    </nav>
+  </div>
+</header>
+
+<main class="section">
+  <div class="container">
+    <h1>Cenník</h1>
+    <p class="small">
+      Ceny sú orientačné. Konečnú cenu potvrdíme po krátkej konzultácii (veľkosť priestoru, situácia, doprava).
+    </p>
+
+    <div class="grid-2" style="margin-top:16px;">
+      <div class="card">
+        <h2>Online konzultácia</h2>
+        <p class="small">20–30 min</p>
+        <p style="font-size:1.6rem; font-weight:800; margin:10px 0 0;">€ 20</p>
+        <p class="small">Odporúčania + návrh postupu</p>
+      </div>
+
+      <div class="card">
+        <h2>Očista bytu</h2>
+        <p class="small">1–2 izbový byt (60–90 min)</p>
+        <p style="font-size:1.6rem; font-weight:800; margin:10px 0 0;">€ 60</p>
+        <p class="small">Konzultácia + očista + odporúčania</p>
+      </div>
+
+      <div class="card">
+        <h2>Očista väčšieho bytu / domu</h2>
+        <p class="small">90–150+ min</p>
+        <p style="font-size:1.6rem; font-weight:800; margin:10px 0 0;">€ 90+</p>
+        <p class="small">Podľa veľkosti priestoru</p>
+      </div>
+
+      <div class="card">
+        <h2>Doprava</h2>
+        <p class="small">Mimo mesta</p>
+        <p style="font-size:1.6rem; font-weight:800; margin:10px 0 0;">€ 0.30 / km</p>
+        <p class="small">Alebo dohodou</p>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:16px;">
+      <h2>Chcete cenu bez verejného cenníka?</h2>
+      <p class="small">Môžete cenník skryť a uviesť „Cenník na vyžiadanie“. Stačí zmeniť texty na tejto stránke.</p>
+      <a class="btn primary" href="kontakt.html">Požiadať o cenu</a>
+    </div>
+  </div>
+</main>
+
+<a class="wa-float" data-whatsapp href="#">WhatsApp</a>
+<footer class="footer"><div class="container"><div class="small">© <span id="year"></span> Očista Priestoru</div></div></footer>
+<script src="script.js"></script>
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="sk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Služby – Očista priestoru</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="index.html"><span class="brand-badge"></span><span>Očista Priestoru</span></a>
+    <nav class="menu">
+      <a href="index.html">Domov</a>
+      <a href="sluzby.html">Služby</a>
+      <a href="ako-pracujem.html">Ako pracujem</a>
+      <a href="cennik.html">Cenník</a>
+      <a href="kontakt.html" class="btn">Kontakt</a>
+    </nav>
+  </div>
+</header>
+
+<main class="section">
+  <div class="container">
+    <h1>Služby</h1>
+    <p class="small">Vyberte si balík podľa situácie. Presný rozsah si potvrdíme v krátkom rozhovore.</p>
+
+    <div class="grid-2" style="margin-top:16px;">
+      <div class="card">
+        <h2>Očista bytu / domu</h2>
+        <p class="small">Pre „ťažkú atmosféru“, nepokoj, napätie v priestore.</p>
+        <ul class="list">
+          <li>Konzultácia (telefon/online)</li>
+          <li>Práca na mieste (60–120 min)</li>
+          <li>Harmonizácia priestoru</li>
+          <li>Odporúčania na udržanie pohody</li>
+        </ul>
+        <a class="btn primary row" href="kontakt.html">Zistiť dostupnosť</a>
+      </div>
+
+      <div class="card">
+        <h2>Očista po sťahovaní</h2>
+        <p class="small">„Reset“ energie priestoru pri novej kapitole.</p>
+        <ul class="list">
+          <li>Krátka príprava pred návštevou</li>
+          <li>Očista + nastavenie zámeru pre domov</li>
+          <li>Tipy pre prvé dni po sťahovaní</li>
+        </ul>
+        <a class="btn primary row" href="kontakt.html">Objednať</a>
+      </div>
+
+      <div class="card">
+        <h2>Pracovný priestor</h2>
+        <p class="small">Kancelária, prevádzka, ateliér – pre pokoj a sústredenie.</p>
+        <ul class="list">
+          <li>Harmonizácia zón (vstup, pracovisko, oddych)</li>
+          <li>Práca s atmosférou tímu / klientov</li>
+          <li>Odporúčania na „čistý režim“</li>
+        </ul>
+        <a class="btn primary row" href="kontakt.html">Napísať</a>
+      </div>
+
+      <div class="card">
+        <h2>Online konzultácia</h2>
+        <p class="small">Ak si chcete najprv overiť, či je služba pre vás.</p>
+        <ul class="list">
+          <li>20–30 min (video alebo telefon)</li>
+          <li>Odporúčania na jednoduchú očistu</li>
+          <li>Návrh ďalšieho postupu</li>
+        </ul>
+        <a class="btn primary row" href="kontakt.html">Rezervovať</a>
+      </div>
+    </div>
+
+    <p class="notice" style="margin-top:16px;">
+      Neponúkam „strašenie“ ani dramatizovanie. Cieľom je podpora vášho komfortu a pocitu bezpečia v priestore.
+    </p>
+  </div>
+</main>
+
+<a class="wa-float" data-whatsapp href="#">WhatsApp</a>
+<footer class="footer"><div class="container"><div class="small">© <span id="year"></span> Očista Priestoru</div></div></footer>
+<script src="script.js"></script>
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>

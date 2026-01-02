@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="sk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ako pracujem – Očista priestoru</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="index.html"><span class="brand-badge"></span><span>Očista Priestoru</span></a>
+    <nav class="menu">
+      <a href="index.html">Domov</a>
+      <a href="sluzby.html">Služby</a>
+      <a href="ako-pracujem.html">Ako pracujem</a>
+      <a href="cennik.html">Cenník</a>
+      <a href="kontakt.html" class="btn">Kontakt</a>
+    </nav>
+  </div>
+</header>
+
+<main class="section">
+  <div class="container grid-2">
+    <div class="card">
+      <h1>Ako pracujem</h1>
+      <p class="small">
+        Pracujem citlivo, diskrétne a bez nátlaku. Vždy vysvetlím, čo budem robiť, aby ste mali kontrolu a pokoj.
+      </p>
+
+      <h2 style="margin-top:18px;">Čo môžete očakávať</h2>
+      <ul class="list">
+        <li>krátka konzultácia pred návštevou</li>
+        <li>jasný plán: čo, kde a prečo</li>
+        <li>práca zameraná na upokojenie atmosféry</li>
+        <li>odporúčania na doma</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Čo nerobím</h2>
+      <ul class="list">
+        <li>nestraším a nevytváram paniku</li>
+        <li>nesľubujem „zázraky“ a okamžité riešenia všetkého</li>
+        <li>netlačím na drahé doplnkové produkty</li>
+        <li>rešpektujem vaše presvedčenie (náboženské aj nenáboženské)</li>
+      </ul>
+
+      <p class="notice" style="margin-top:14px;">
+        Ak máte dlhodobú úzkosť, halucinácie, výrazné poruchy spánku alebo strach, ktorý sa zhoršuje,
+        odporúčam kontaktovať psychológa/lekára. Služba môže byť doplnkom, nie náhradou odbornej pomoci.
+      </p>
+
+      <a class="btn primary row" href="kontakt.html" style="margin-top:10px;">Napísať mi</a>
+    </div>
+  </div>
+</main>
+
+<a class="wa-float" data-whatsapp href="#">WhatsApp</a>
+<footer class="footer"><div class="container"><div class="small">© <span id="year"></span> Očista Priestoru</div></div></footer>
+<script src="script.js"></script>
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>

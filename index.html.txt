@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="sk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Očista priestoru – harmonizácia domova</title>
+  <meta name="description" content="Energetická očista a harmonizácia priestoru. Diskrétne, bez strašenia, s jasným postupom." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-badge" aria-hidden="true"></span>
+      <span>Očista Priestoru</span>
+    </a>
+    <nav class="menu" aria-label="Hlavné menu">
+      <a href="index.html">Domov</a>
+      <a href="sluzby.html">Služby</a>
+      <a href="ako-pracujem.html">Ako pracujem</a>
+      <a href="cennik.html">Cenník</a>
+      <a href="kontakt.html" class="btn">Kontakt</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <h1>Očista priestoru a energetická harmonizácia domova</h1>
+        <p class="small">
+          Keď sa doma necítite dobre, atmosféra je „ťažká“, spánok nepokojný alebo po náročnom období
+          chcete priestor upokojiť – pomôžem vám s citlivou očistou a zharmonizovaním priestoru.
+        </p>
+
+        <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:16px;">
+          <a class="btn primary" href="kontakt.html">Objednať konzultáciu</a>
+          <a class="btn" data-whatsapp href="#">Napísať na WhatsApp</a>
+        </div>
+
+        <div class="badges">
+          <span class="badge">Diskrétnosť</span>
+          <span class="badge">Jasný postup</span>
+          <span class="badge">Bez strašenia</span>
+          <span class="badge">Celé Slovensko</span>
+        </div>
+      </div>
+
+      <div class="card soft">
+        <h2>Pre koho je služba</h2>
+        <ul class="list">
+          <li>Necítite sa doma uvoľnene alebo bezpečne</li>
+          <li>Po sťahovaní, konflikte, rozchode či náročnom období</li>
+          <li>Chcete „reset“ a pokojnejšiu atmosféru v priestore</li>
+          <li>Máte záujem o citlivú, nenátlakovú pomoc</li>
+        </ul>
+        <p class="notice" style="margin-top:14px;">
+          Služby sú spirituálneho/relaxačného charakteru a nenahrádzajú zdravotnú alebo psychologickú starostlivosť.
+          Ak prežívate silnú úzkosť, paniku alebo dlhodobé problémy so spánkom, odporúčam kontaktovať odborníka.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Ako to prebieha</h2>
+      <div class="grid-2" style="margin-top:14px;">
+        <div class="card">
+          <div class="step">
+            <h3>1. Krátky rozhovor</h3>
+            <p class="small">Zistíme, čo riešite, a dohodneme si postup a termín.</p>
+          </div>
+          <div class="step">
+            <h3>2. Práca v priestore</h3>
+            <p class="small">Na mieste (alebo online podľa dohody). Vysvetlím, čo budem robiť.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="step">
+            <h3>3. Očista a harmonizácia</h3>
+            <p class="small">Bez strašenia a nátlaku. Cieľ je pokojnejšia atmosféra.</p>
+          </div>
+          <div class="step">
+            <h3>4. Odporúčania</h3>
+            <p class="small">Jednoduché kroky, ako si dobrú atmosféru udržať.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="kpis" style="margin-top:16px;">
+        <div class="kpi">
+          <strong>Diskrétnosť</strong>
+          <span class="small">Citlivý prístup, anonymita referencií.</span>
+        </div>
+        <div class="kpi">
+          <strong>Transparentnosť</strong>
+          <span class="small">Dohodneme rozsah a cenu vopred.</span>
+        </div>
+        <div class="kpi">
+          <strong>Celé Slovensko</strong>
+          <span class="small">Možnosť cestovania podľa dohody.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>Referencie</h2>
+        <ul class="list">
+          <li><strong>„Doma sa nám konečne lepšie spí.“</strong><br><span class="small">Mária, Trenčín</span></li>
+          <li><strong>„Atmosféra sa upokojila, cítime viac pohody.“</strong><br><span class="small">Peter, Bratislava</span></li>
+          <li><strong>„Najviac oceňujem diskrétnosť a normálny prístup.“</strong><br><span class="small">Zuzana, Košice</span></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>Kto som</h2>
+        <p class="small">
+          (Sem si doplň svoje meno a krátky príbeh.) Pracujem citlivo, bez dramatizovania.
+          Mojím cieľom je pomôcť vám vytvoriť pokojnejšiu atmosféru v priestore.
+        </p>
+        <a class="btn primary row" href="kontakt.html" style="margin-top:10px;">Kontaktovať ma</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<a class="wa-float" data-whatsapp href="#" aria-label="Napísať na WhatsApp">WhatsApp</a>
+
+<footer class="footer">
+  <div class="container">
+    <div class="small">© <span id="year"></span> Očista Priestoru • <a href="kontakt.html">Kontakt</a></div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

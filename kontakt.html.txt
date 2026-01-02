@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="sk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kontakt – Očista priestoru</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="index.html"><span class="brand-badge"></span><span>Očista Priestoru</span></a>
+    <nav class="menu">
+      <a href="index.html">Domov</a>
+      <a href="sluzby.html">Služby</a>
+      <a href="ako-pracujem.html">Ako pracujem</a>
+      <a href="cennik.html">Cenník</a>
+      <a href="kontakt.html" class="btn">Kontakt</a>
+    </nav>
+  </div>
+</header>
+
+<main class="section">
+  <div class="container grid-2">
+    <div class="card">
+      <h1>Kontakt</h1>
+      <p class="small">
+        Napíšte mi pár informácií a ozvem sa vám s dostupnými termínmi. Všetko riešim diskrétne.
+      </p>
+
+      <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
+        <a class="btn primary" data-whatsapp href="#">WhatsApp správa</a>
+        <a class="btn" href="mailto:vasemail@domena.sk?subject=Záujem%20o%20očistu%20priestoru">Email</a>
+      </div>
+
+      <p class="notice" style="margin-top:14px;">
+        Prosím uveďte mesto, typ priestoru (byt/dom), približnú veľkosť a stručný popis situácie.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Kontaktný formulár</h2>
+
+      <form class="form"
+            action="https://formspree.io/f/xnjndwwd"
+            method="POST">
+        <div>
+          <label for="name">Meno</label>
+          <input id="name" name="name" required />
+        </div>
+
+        <div class="grid-2">
+          <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required />
+          </div>
+          <div>
+            <label for="phone">Telefón (voliteľné)</label>
+            <input id="phone" name="phone" />
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div>
+            <label for="city">Mesto</label>
+            <input id="city" name="city" required />
+          </div>
+          <div>
+            <label for="type">Typ priestoru</label>
+            <select id="type" name="type" required>
+              <option value="">Vyberte…</option>
+              <option>Byt</option>
+              <option>Dom</option>
+              <option>Pracovný priestor</option>
+              <option>Iné</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label for="message">Správa</label>
+          <textarea id="message" name="message" required
+            placeholder="Popíšte stručne situáciu, veľkosť priestoru a preferované termíny."></textarea>
+        </div>
+
+        <input type="hidden" name="_subject" value="Nová správa z webu – Očista priestoru" />
+
+        <button class="btn primary row" type="submit">Odoslať</button>
+
+        <p class="small" style="margin:10px 0 0;">
+          Odoslaním súhlasíte so spracovaním údajov na účel kontaktovania.
+        </p>
+      </form>
+    </div>
+  </div>
+</main>
+
+<a class="wa-float" data-whatsapp href="#">WhatsApp</a>
+<footer class="footer"><div class="container"><div class="small">© <span id="year"></span> Očista Priestoru</div></div></footer>
+
+<script src="script.js"></script>
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>

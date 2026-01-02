@@ -118,13 +118,14 @@ p{margin:0 0 12px}
 /* HERO — výraznejší obrázok + správne 3 vrstvy pozadia */
 .hero{
   --hero-bg: url('exorcisti.png');
-
+}
 
   padding:82px 0 56px;
   position:relative;
   overflow:hidden;
   min-height:100vh;
 }
+
 .hero::before{
   content:"";
   position:absolute;
@@ -245,6 +246,7 @@ textarea{min-height:150px;resize:vertical}
     --hero-bg: url('exorcisti-mobile.png');
   }
 }
+
 
 
 

@@ -125,9 +125,9 @@ p{margin:0 0 12px}
     radial-gradient(900px 520px at 25% 10%, rgba(216,179,90,.18), transparent 60%),
     radial-gradient(900px 520px at 70% 20%, rgba(169,139,255,.20), transparent 60%),
     var(--hero-bg, none);
-  background-size: auto, auto, 1100px auto;
+  background-size: auto, auto, cover;
   background-repeat:no-repeat;
-  background-position: 0 0, 0 0, 50% 20%;
+  background-position: 0 0, 0 0, 50% 50%;
   opacity:.20;
   filter: grayscale(100%) contrast(120%);
 }
@@ -219,6 +219,7 @@ textarea{min-height:150px;resize:vertical}
 .wa-float:hover{transform:translateY(-1px)}
 
 .pillrow{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
+
 
 
 

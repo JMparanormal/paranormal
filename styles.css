@@ -131,7 +131,8 @@ p{margin:0 0 12px}
   background-repeat:no-repeat;
   background-position: 00, 00, center;
   opacity:.45;
-  filter: contrast(115%) brightness(85%);
+  filter: contrast(130%) brightness(90%) saturate(110%);
+
 
 }
 .hero::after{
@@ -222,6 +223,7 @@ textarea{min-height:150px;resize:vertical}
 .wa-float:hover{transform:translateY(-1px)}
 
 .pillrow{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
+
 
 
 

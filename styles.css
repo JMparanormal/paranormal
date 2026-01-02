@@ -236,25 +236,39 @@ textarea{min-height:150px;resize:vertical}
 
 .pillrow{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
 
-/* 📱 MOBIL – vynútené (TEST) */
-@media (max-width: 900px){
+/* 📱 MOBIL – presný orez podľa screenshotu */
+@media (max-width: 768px){
+
   .hero{
-    min-height: 85vh !important;
-    padding: 64px 0 40px !important;
+    min-height: 82vh;
+    padding: 70px 0 36px;
   }
 
   .hero::before{
-    background-position: 0 0, 0 0, 50% 15% !important; /* posun hore */
-    opacity: .55 !important;                           /* výraznejšie */
-    filter: contrast(140%) brightness(92%) saturate(115%) !important;
+    /* HLAVNÁ ZMENA – silný posun hore */
+    background-position: 0 0, 0 0, 50% 8%;
+
+    /* trochu viac kontrastu, aby línie vynikli */
+    filter: contrast(150%) brightness(92%) saturate(115%);
+
+    /* mierne nižšia priehľadnosť */
+    opacity: .50;
+
+    box-shadow: inset 0 0 90px rgba(255,220,150,.10);
   }
 
   .hero::after{
+    /* vertikálny gradient lepší pre mobil */
     background: linear-gradient(
       180deg,
       rgba(7,6,11,.70) 0%,
-      rgba(7,6,11,.35) 55%,
-      rgba(7,6,11,.85) 100%
-    ) !important;
+      rgba(7,6,11,.35) 50%,
+      rgba(7,6,11,.88) 100%
+    );
+  }
+
+}
+
   }
 }
+

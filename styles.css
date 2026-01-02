@@ -236,6 +236,45 @@ textarea{min-height:150px;resize:vertical}
 
 .pillrow{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
 
+/* 📱 MOBILNÁ VERZIA HERO */
+@media (max-width: 768px){
+
+  .hero{
+    min-height: 85vh; /* menej ako desktop */
+    padding: 64px 0 40px;
+  }
+
+  .hero::before{
+    /* posunieme obrázok vyššie, aby boli viditeľné postavy */
+    background-position: 0 0, 0 0, 50% 25%;
+
+    /* mierne znížime kontrast, aby sa neprepalil */
+    filter: contrast(130%) brightness(92%) saturate(110%);
+
+    /* trochu slabší závoj */
+    opacity: .46;
+
+    /* menší vnútorný tieň */
+    box-shadow: inset 0 0 90px rgba(255,220,150,.08);
+  }
+
+  .hero::after{
+    /* menej tmavý overlay na mobile */
+    background: linear-gradient(
+      180deg,
+      rgba(7,6,11,.75) 0%,
+      rgba(7,6,11,.45) 55%,
+      rgba(7,6,11,.85) 100%
+    );
+  }
+
+  /* text v hero viac na stred */
+  .hero h1{
+    font-size: 2.1rem;
+  }
+
+}
+
 
 
 

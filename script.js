@@ -1,25 +1,30 @@
-// Nastav si svoje údaje tu:
+// Uprav pred nahratím:
 const CONFIG = {
-  whatsappPhone: "421900000000", // napr. 4219XXXXXXXX (bez +, bez medzier)
-  whatsappText: "Dobrý deň, mám záujem o očistu priestoru. Prosím o dostupné termíny.",
+  whatsappPhone: "421917717171", // bez +, bez medzier
+  whatsappText:
+    "Dobrý deň, prosím o pomoc s duchovnou očistou priestoru. Mesto: ___. Stručne čo sa deje: ___.",
 };
 
-function buildWhatsAppLink() {
-  const text = encodeURIComponent(CONFIG.whatsappText);
-  return `https://wa.me/${CONFIG.whatsappPhone}?text=${text}`;
+function waLink() {
+  return `https://wa.me/${CONFIG.whatsappPhone}?text=${encodeURIComponent(CONFIG.whatsappText)}`;
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const wa = document.querySelector("[data-whatsapp]");
-  if (wa) wa.setAttribute("href", buildWhatsAppLink());
-
-  const waFloat = document.querySelector(".wa-float");
-  if (waFloat) waFloat.setAttribute("href", buildWhatsAppLink());
-
-  // Vysvieti aktívnu položku menu
-  const path = location.pathname.split("/").pop() || "index.html";
-  document.querySelectorAll(".menu a").forEach(a => {
-    const href = a.getAttribute("href");
-    if (href === path) a.style.color = "var(--text)";
+  // WhatsApp odkazy
+  document.querySelectorAll("[data-whatsapp]").forEach((el) => {
+    el.setAttribute("href", waLink());
   });
+
+  // Active menu
+  const path = (location.pathname.split("/").pop() || "index.html").toLowerCase();
+  document.querySelectorAll(".menu a").forEach((a) => {
+    const href = (a.getAttribute("href") || "").toLowerCase();
+    if (href === path) a.classList.add("active");
+  });
+
+  // Year
+  const y = document.getElementById("year");
+  if (y) y.textContent = new Date().getFullYear();
 });
+
+

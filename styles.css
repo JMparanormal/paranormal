@@ -244,8 +244,21 @@ textarea{min-height:150px;resize:vertical}
 @media (max-width: 768px){
   .hero{
     --hero-bg: url('exorcisti-mobile.png');
+    min-height: 90vh;
+  }
+
+  .hero::before{
+    background-position: 50% 20%;
+    opacity: .65;
+    filter: contrast(140%) brightness(92%);
+  }
+
+  h1{
+    font-size: 2rem;
   }
 }
+
+
 
 
 

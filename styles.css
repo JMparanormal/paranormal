@@ -1,3 +1,5 @@
+/* styles.css — kompletná verzia (výraznejší hero obrázok + opravené vrstvy pozadia) */
+
 :root{
   --bg:#07060b;
   --bg2:#0c0814;
@@ -113,38 +115,41 @@ p{margin:0 0 12px}
   .grid-2,.grid-3{grid-template-columns:1fr}
 }
 
+/* HERO — výraznejší obrázok + správne 3 vrstvy pozadia */
 .hero{
   padding:82px 0 56px;
   position:relative;
   overflow:hidden;
-  min-height: 100vh;
-
+  min-height:100vh;
 }
 .hero::before{
   content:"";
-  position:absolute; inset:-40px;
+  position:absolute;
+  inset:-40px;
   background:
     radial-gradient(900px 520px at 25% 10%, rgba(216,179,90,.18), transparent 60%),
     radial-gradient(900px 520px at 70% 20%, rgba(169,139,255,.20), transparent 60%),
     var(--hero-bg, none);
+  /* 3 hodnoty = 3 vrstvy */
   background-size: auto, auto, cover;
   background-repeat:no-repeat;
-  background-position: 00, 00, center;
-  opacity:.45;
-  filter: contrast(130%) brightness(90%) saturate(110%);
+  background-position: 0 0, 0 0, 50% 45%;
 
-
+  /* výzor obrázka */
+  opacity:.52;
+  filter: contrast(145%) brightness(88%) saturate(115%);
+  box-shadow: inset 0 0 140px rgba(255,220,150,.10);
 }
 .hero::after{
   content:"";
-  position:absolute; inset:0;
+  position:absolute;
+  inset:0;
   background: linear-gradient(
-  90deg,
-  rgba(7,6,11,.85) 0%,
-  rgba(7,6,11,.55) 46%,
-  rgba(7,6,11,.85) 100%
-);
-
+    90deg,
+    rgba(7,6,11,.82) 0%,
+    rgba(7,6,11,.50) 46%,
+    rgba(7,6,11,.82) 100%
+  );
 }
 .hero > .container{position:relative;z-index:1}
 
@@ -221,7 +226,8 @@ textarea{min-height:150px;resize:vertical}
   border-radius:999px;
   padding:12px 14px;
   background:linear-gradient(135deg, rgba(216,179,90,.94), rgba(169,139,255,.86));
-  color:#08060f;font-weight:950;
+  color:#08060f;
+  font-weight:950;
   box-shadow:var(--shadow);
   border:0;
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
@@ -229,6 +235,8 @@ textarea{min-height:150px;resize:vertical}
 .wa-float:hover{transform:translateY(-1px)}
 
 .pillrow{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
+
+
 
 
 

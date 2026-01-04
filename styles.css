@@ -324,13 +324,13 @@ textarea{min-height:150px;resize:vertical}
    OVERLAY (dym)
 ========================= */
 body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  background:radial-gradient(ellipse at top, rgba(0,0,0,.35), rgba(0,0,0,.78));
-  pointer-events:none;
-  z-index:-1;
+  background:radial-gradient(
+    ellipse at top,
+    rgba(216,179,90,.08),
+    rgba(0,0,0,.88)
+  );
 }
+
 
 /* na KONTAKT vypneme overlay, aby boky neboli sivé */
 .page-kontakt::before{ background:none !important; }
@@ -366,5 +366,6 @@ body::before{
     filter:contrast(140%) brightness(92%);
   }
 }
+
 
 

@@ -5,243 +5,195 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>paranormal.sk – duchovná očista domov a priestorov</title>
   <meta name="description" content="Duchovná očista priestorov, odstránenie ťažkých energií a nepokoja. Ochrana a uzavretie stôp. Bratislava a celé Slovensko." />
-  <link rel="stylesheet" href="styles-v20.css?v=20">
-
+  <link rel="stylesheet" href="theme-ritual.css?v=99">
 </head>
 
 <body>
-  <!-- Background ornaments -->
-  <div class="bg-orbit" aria-hidden="true"></div>
-  <div class="bg-grain" aria-hidden="true"></div>
+  <div class="ritual-bg" aria-hidden="true"></div>
 
-  <header class="nav">
-    <div class="container nav-inner">
-      <a class="brand" href="index.html" aria-label="Domov">
-        <svg viewBox="0 0 64 64" aria-hidden="true">
-          <defs>
-            <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stop-color="#d8b35a"/>
-              <stop offset="1" stop-color="#a98bff"/>
-            </linearGradient>
-          </defs>
-          <circle cx="32" cy="32" r="28" fill="none" stroke="url(#g)" stroke-width="2.5"/>
-          <path d="M32 12 L37 27 L52 32 L37 37 L32 52 L27 37 L12 32 L27 27 Z" fill="none" stroke="url(#g)" stroke-width="2.2" stroke-linejoin="round"/>
-          <path d="M32 18v28M18 32h28" stroke="rgba(242,238,252,.85)" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-        <span class="word">PARANORMAL.SK</span>
-      </a>
+  <!-- LEFT RAIL NAV (úplne nový layout) -->
+  <aside class="rail">
+    <a class="brand" href="index.html" aria-label="Domov">
+      <svg viewBox="0 0 64 64" aria-hidden="true">
+        <defs>
+          <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#d8b35a"/>
+            <stop offset="1" stop-color="#a98bff"/>
+          </linearGradient>
+        </defs>
+        <circle cx="32" cy="32" r="28" fill="none" stroke="url(#g)" stroke-width="2.5"/>
+        <path d="M32 12 L37 27 L52 32 L37 37 L32 52 L27 37 L12 32 L27 27 Z" fill="none" stroke="url(#g)" stroke-width="2.2" stroke-linejoin="round"/>
+        <path d="M32 18v28M18 32h28" stroke="rgba(242,238,252,.85)" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <span>PARANORMAL.SK</span>
+    </a>
 
-      <nav class="menu" aria-label="Hlavné menu">
-        <a href="index.html">Domov</a>
-        <a href="sluzby.html">Očista</a>
-        <a href="ako-pracujem.html">Postup</a>
-        <a href="reiki.html">Reiki</a>
-        <a href="kontakt.html" class="btn btn-nav">Kontakt</a>
-      </nav>
+    <nav class="menu" aria-label="Hlavné menu">
+      <a href="index.html">Domov</a>
+      <a href="sluzby.html">Očista</a>
+      <a href="ako-pracujem.html">Postup</a>
+      <a href="reiki.html">Reiki</a>
+      <a href="kontakt.html" class="btn small">Kontakt</a>
+    </nav>
 
-      <button class="menu-toggle" aria-label="Otvoriť menu" aria-expanded="false">Menu</button>
+    <div class="rail-foot">
+      <a class="btn ghost small" data-whatsapp href="#">WhatsApp</a>
+      <div class="muted">Bratislava • celé Slovensko</div>
     </div>
-  </header>
+  </aside>
 
-  <main>
-    <!-- HERO: nový layout (dossier + sigil panel) -->
+  <!-- MAIN -->
+  <main class="stage">
+    <!-- HERO: okult “ritual altar” -->
     <section class="hero">
-      <div class="container hero-grid">
-        <!-- Left: dossier -->
-        <div class="dossier">
-          <div class="dossier-top">
-            <div class="stamp">RITUAL DOSSIER</div>
-            <div class="meta">
-              <span class="meta-dot"></span>
-              <span class="meta-text">Bratislava • celé Slovensko</span>
-            </div>
-          </div>
-
-          <h1>Duchovná očista domov a priestorov</h1>
-
-          <!-- TEXTY: ponechané -->
-          <p class="small">
-            Keď priestor prestane byť domovom, zmení sa atmosféra: ticho je ťažké, spánok nepokojný,
-            vzniká strach bez dôvodu a objavujú sa javy, ktoré sa ťažko vysvetľujú.
-          </p>
-
-          <p class="small">
-            Ponúkam očistu priestoru, uzavretie stôp po udalostiach (vrátane úmrtí), odstránenie
-            ťažkých energií a prácu s viazanosťami, ktoré vznikli po rituáloch, kliatbach alebo „otvorených“ zásahoch.
-            Bez senzácie — s rešpektom, autoritou a pokojom.
-          </p>
-
-          <div class="cta-row">
-            <a class="btn btn-primary" href="kontakt.html">Požiadať o pomoc</a>
-            <a class="btn btn-ghost" data-whatsapp href="#">WhatsApp (rýchlo)</a>
-          </div>
-
-          <div class="sigils" aria-label="Hodnoty">
-            <span class="sigil">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20M7 7h10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-              Ochrana
-            </span>
-            <span class="sigil">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 6v6c0 5-4 7-8 9-4-2-8-4-8-9V9l8-6z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
-              Diskrétnosť
-            </span>
-            <span class="sigil">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3 7 7 3-7 3-3 7-3-7-7-3 7-3 3-7z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
-              Očista
-            </span>
-            <span class="sigil">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 0 1 16 0c0 6-8 10-8 10S4 18 4 12z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
-              Uzavretie stôp
-            </span>
-          </div>
-
-          <div class="quote">
-            <div class="small">
-              <strong>Energetická výmena:</strong> za službu sa neúčtuje pevná cena — príspevok je formou
-              <strong>dobrovoľného daru</strong>. Mimo Bratislavy po dohode; <strong>cestu hradí klient vopred</strong>.
-            </div>
-          </div>
+      <div class="hero-left">
+        <div class="seal">
+          <div class="seal-ring"></div>
+          <div class="seal-ring r2"></div>
+          <div class="seal-ring r3"></div>
+          <div class="seal-center"></div>
+          <div class="seal-text">RITUAL DOSSIER</div>
         </div>
 
-        <!-- Right: “sigil panel” + kedy je očista vhodná -->
-        <aside class="ritual-panel">
-          <div class="sigil-board" aria-hidden="true">
-            <div class="sigil-ring"></div>
-            <div class="sigil-ring ring2"></div>
-            <div class="sigil-ring ring3"></div>
-            <div class="sigil-center"></div>
+        <h1>Duchovná očista domov a priestorov</h1>
+
+        <!-- TEXTY: nezmenené -->
+        <p class="small">
+          Keď priestor prestane byť domovom, zmení sa atmosféra: ticho je ťažké, spánok nepokojný,
+          vzniká strach bez dôvodu a objavujú sa javy, ktoré sa ťažko vysvetľujú.
+        </p>
+
+        <p class="small">
+          Ponúkam očistu priestoru, uzavretie stôp po udalostiach (vrátane úmrtí), odstránenie
+          ťažkých energií a prácu s viazanosťami, ktoré vznikli po rituáloch, kliatbach alebo „otvorených“ zásahoch.
+          Bez senzácie — s rešpektom, autoritou a pokojom.
+        </p>
+
+        <div class="cta">
+          <a class="btn primary" href="kontakt.html">Požiadať o pomoc</a>
+          <a class="btn ghost" data-whatsapp href="#">WhatsApp (rýchlo)</a>
+        </div>
+
+        <div class="sigils" aria-label="Hodnoty">
+          <span class="sigil">Ochrana</span>
+          <span class="sigil">Diskrétnosť</span>
+          <span class="sigil">Očista</span>
+          <span class="sigil">Uzavretie stôp</span>
+        </div>
+
+        <div class="quote">
+          <div class="small">
+            <strong>Energetická výmena:</strong> za službu sa neúčtuje pevná cena — príspevok je formou
+            <strong>dobrovoľného daru</strong>. Mimo Bratislavy po dohode; <strong>cestu hradí klient vopred</strong>.
           </div>
-
-          <div class="card card-strong">
-            <h2>Kedy je očista vhodná</h2>
-            <!-- TEXTY: ponechané -->
-            <ul class="list">
-              <li>po úmrtí v priestore (najmä náhle, tragické alebo „neuzavreté“)</li>
-              <li>po rituáloch, vyvolávaniach, „otváraní brán“, práci s kliatbou</li>
-              <li>opakujúce sa javy: kroky, šepot, búchanie, tieň, pocit prítomnosti</li>
-              <li>neprimeraný strach, tlak, neprirodzený chlad alebo nepokoj v konkrétnej zóne</li>
-              <li>opakovaný hnilobný zápach bez fyzickej príčiny (po vylúčení technických dôvodov)</li>
-            </ul>
-
-            <div class="hr"></div>
-
-            <p class="notice">
-              Najprv vždy vylúč technické príčiny (plyn, pleseň, elektrina, zvieratá).
-              Duchovná očista je posledná vrstva ochrany — nie náhrada bezpečnosti.
-            </p>
-          </div>
-        </aside>
+        </div>
       </div>
 
-      <div class="hero-cut" aria-hidden="true"></div>
+      <!-- HERO RIGHT: “casefile” karta -->
+      <aside class="hero-right">
+        <div class="casefile">
+          <div class="case-head">
+            <div class="tag">SIGNÁLY</div>
+            <div class="tag blood">PRIORITA</div>
+          </div>
+
+          <h2>Kedy je očista vhodná</h2>
+
+          <!-- TEXTY: nezmenené -->
+          <ul class="list">
+            <li>po úmrtí v priestore (najmä náhle, tragické alebo „neuzavreté“)</li>
+            <li>po rituáloch, vyvolávaniach, „otváraní brán“, práci s kliatbou</li>
+            <li>opakujúce sa javy: kroky, šepot, búchanie, tieň, pocit prítomnosti</li>
+            <li>neprimeraný strach, tlak, neprirodzený chlad alebo nepokoj v konkrétnej zóne</li>
+            <li>opakovaný hnilobný zápach bez fyzickej príčiny (po vylúčení technických dôvodov)</li>
+          </ul>
+
+          <div class="hr"></div>
+
+          <p class="notice">
+            Najprv vždy vylúč technické príčiny (plyn, pleseň, elektrina, zvieratá).
+            Duchovná očista je posledná vrstva ochrany — nie náhrada bezpečnosti.
+          </p>
+        </div>
+      </aside>
     </section>
 
-    <!-- SECTION: nový “tri stĺpy” ako rituálne pečate -->
+    <!-- SECTION: tri stĺpy ako “ritual steps” -->
     <section class="section">
-      <div class="container">
-        <div class="section-head">
-          <h2>Čo sa rieši počas zásahu</h2>
-          <div class="divider-ritual" aria-hidden="true"></div>
+      <div class="section-head">
+        <h2>Čo sa rieši počas zásahu</h2>
+        <div class="divider" aria-hidden="true"></div>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <div class="num">I</div>
+          <strong>Diagnostika</strong>
+          <div class="small">Zóny, energetické stopy, predmety, „otvorené miesta“.</div>
         </div>
 
-        <div class="pillars">
-          <div class="pillar">
-            <div class="pillar-top">
-              <span class="pillar-mark">I</span>
-              <strong>Diagnostika</strong>
-            </div>
-            <div class="small">Zóny, energetické stopy, predmety, „otvorené miesta“.</div>
-          </div>
-
-          <div class="pillar">
-            <div class="pillar-top">
-              <span class="pillar-mark">II</span>
-              <strong>Očista & vyvedenie</strong>
-            </div>
-            <div class="small">Odstránenie rušivých vplyvov, uvoľnenie viazaností, uzavretie stôp.</div>
-          </div>
-
-          <div class="pillar">
-            <div class="pillar-top">
-              <span class="pillar-mark">III</span>
-              <strong>Ochrana</strong>
-            </div>
-            <div class="small">Zapečatenie, ochranné vrstvy, odporúčania na udržanie pokoja.</div>
-          </div>
+        <div class="step">
+          <div class="num">II</div>
+          <strong>Očista & vyvedenie</strong>
+          <div class="small">Odstránenie rušivých vplyvov, uvoľnenie viazaností, uzavretie stôp.</div>
         </div>
 
-        <div class="card card-soft" style="margin-top:18px;">
-          <h3>Bezpečný rámec</h3>
-          <!-- TEXTY: ponechané -->
-          <p class="small">
-            Pracujem tak, aby ste mali kontrolu a cítili sa bezpečne. Nepodporujem paniku.
-            Ak prežívate silnú úzkosť, halucinácie alebo dlhodobé psychické ťažkosti,
-            odporúčam odbornú pomoc — duchovná práca môže byť doplnok, nie náhrada.
-          </p>
+        <div class="step">
+          <div class="num">III</div>
+          <strong>Ochrana</strong>
+          <div class="small">Zapečatenie, ochranné vrstvy, odporúčania na udržanie pokoja.</div>
         </div>
+      </div>
+
+      <div class="card">
+        <h3>Bezpečný rámec</h3>
+        <!-- TEXTY: nezmenené -->
+        <p class="small">
+          Pracujem tak, aby ste mali kontrolu a cítili sa bezpečne. Nepodporujem paniku.
+          Ak prežívate silnú úzkosť, halucinácie alebo dlhodobé psychické ťažkosti,
+          odporúčam odbornú pomoc — duchovná práca môže byť doplnok, nie náhrada.
+        </p>
       </div>
     </section>
 
-    <!-- SECTION: nový “split altar” layout -->
+    <!-- SECTION: altar split -->
     <section class="section altar">
-      <div class="container altar-grid">
-        <div class="altar-card card card-strong">
-          <div class="altar-badge">PRVÝ KONTAKT</div>
-          <h2>Prvý kontakt je nezáväzný</h2>
-          <!-- TEXTY: ponechané -->
-          <p class="small">
-            Stačí stručne: mesto, typ priestoru a čo sa deje. Povediem vás otázkami
-            a navrhnem postup.
-          </p>
-          <div class="cta-row">
-            <a class="btn btn-primary" href="kontakt.html">Kontakt</a>
-            <a class="btn" href="sluzby.html">Očista – ponuka</a>
-          </div>
-        </div>
-
-        <div class="altar-card card card-soft altar-visual">
-          <div class="altar-ink" aria-hidden="true"></div>
-          <div class="altar-content">
-            <div class="altar-badge violet">REIKI</div>
-            <h2>Reiki – stabilizácia a pokoj</h2>
-            <!-- TEXTY: ponechané -->
-            <p class="small">
-              Reiki je jemná práca so životnou energiou. Pomáha uzavrieť proces,
-              posilniť ochranu a vnútorný pokoj po očiste.
-            </p>
-            <a class="btn btn-primary btn-row" href="reiki.html">Reiki – viac info</a>
-          </div>
+      <div class="altar-card">
+        <div class="badge">PRVÝ KONTAKT</div>
+        <h2>Prvý kontakt je nezáväzný</h2>
+        <!-- TEXTY: nezmenené -->
+        <p class="small">
+          Stačí stručne: mesto, typ priestoru a čo sa deje. Povediem vás otázkami
+          a navrhnem postup.
+        </p>
+        <div class="cta">
+          <a class="btn primary" href="kontakt.html">Kontakt</a>
+          <a class="btn" href="sluzby.html">Očista – ponuka</a>
         </div>
       </div>
+
+      <div class="altar-card ink">
+        <div class="badge violet">REIKI</div>
+        <h2>Reiki – stabilizácia a pokoj</h2>
+        <!-- TEXTY: nezmenené -->
+        <p class="small">
+          Reiki je jemná práca so životnou energiou. Pomáha uzavrieť proces,
+          posilniť ochranu a vnútorný pokoj po očiste.
+        </p>
+        <a class="btn primary wide" href="reiki.html">Reiki – viac info</a>
+      </div>
     </section>
+
+    <footer class="footer">
+      <div class="small">© <span id="year"></span> paranormal.sk • duchovná očista priestorov</div>
+    </footer>
   </main>
 
   <a class="wa-float" data-whatsapp href="#" aria-label="Napísať na WhatsApp">WhatsApp</a>
 
-  <footer class="footer">
-    <div class="container">
-      <div class="small">© <span id="year"></span> paranormal.sk • duchovná očista priestorov</div>
-    </div>
-  </footer>
-
   <script src="script.js"></script>
-
-  <!-- tiny menu toggle (bez zmeny textov, len UX) -->
-  <script>
-    (function(){
-      const btn = document.querySelector(".menu-toggle");
-      const menu = document.querySelector(".menu");
-      if(!btn || !menu) return;
-
-      btn.addEventListener("click", () => {
-        const open = menu.classList.toggle("open");
-        btn.setAttribute("aria-expanded", open ? "true" : "false");
-      });
-    })();
-  </script>
 </body>
 </html>
-
 
 
 

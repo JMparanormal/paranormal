@@ -108,10 +108,7 @@ h3{font-size:1.12rem}
    HERO – DOMOV
 ========================= */
 .hero{
-  --hero-bg:url("exorcisti.png");
-  min-height:100vh;
-  position:relative;
-  overflow:hidden;
+  --hero-bg:none;
 }
 .hero::before{
   content:"";
@@ -194,4 +191,5 @@ body::before{
   .container{padding:0 16px}
   .grid-2,.grid-3{grid-template-columns:1fr}
 }
+
 

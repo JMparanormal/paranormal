@@ -1,4 +1,4 @@
-/* styles.css — kompletná verzia (výraznejší hero obrázok + opravené vrstvy pozadia) */
+/* styles.css — kompletná verzia (hero + backgrounds per page + mobile responsive) */
 
 :root{
   --bg:#07060b;
@@ -18,15 +18,20 @@
 
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
+img, svg{max-width:100%; height:auto}
+
 body{
   color:var(--text);
   font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
   line-height:1.65;
+
+  /* základ bez obrázka — obrázky riešime cez .page-* */
   background:
     radial-gradient(900px 520px at 20% -10%, rgba(169,139,255,.18), transparent 60%),
     radial-gradient(900px 520px at 80% 0%, rgba(216,179,90,.14), transparent 60%),
     radial-gradient(900px 520px at 55% 120%, rgba(255,77,109,.10), transparent 65%),
     linear-gradient(180deg, var(--bg), var(--bg2));
+  background-repeat:no-repeat;
 }
 
 a{color:inherit;text-decoration:none}
@@ -39,6 +44,9 @@ h2{font-size:clamp(1.45rem, 2.6vw, 2.1rem)}
 h3{font-size:1.12rem}
 p{margin:0 0 12px}
 
+/* =========================
+   NAV
+========================= */
 .nav{
   position:sticky;top:0;z-index:50;
   background:rgba(7,6,11,.62);
@@ -47,26 +55,29 @@ p{margin:0 0 12px}
 }
 .nav-inner{
   display:flex;align-items:center;justify-content:space-between;
-  gap:12px;padding:14px 0
+  gap:12px;padding:14px 0;
 }
 
 .brand{
   display:flex;align-items:center;gap:12px;
-  font-weight:900;letter-spacing:.45px
+  font-weight:900;letter-spacing:.45px;
 }
 .brand .word{
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   font-size:.96rem;
   letter-spacing:.8px;
+  white-space:nowrap;
 }
-.brand svg{
+.brand .brand-logo{
   width:34px;height:34px;
+  display:block;
+  flex:0 0 auto;
   filter: drop-shadow(0 10px 18px rgba(0,0,0,.55));
 }
 
 .menu{
   display:flex;flex-wrap:wrap;gap:10px;
-  align-items:center;justify-content:flex-end
+  align-items:center;justify-content:flex-end;
 }
 .menu a{
   padding:9px 11px;border-radius:999px;
@@ -78,6 +89,9 @@ p{margin:0 0 12px}
 .menu a:hover{border-color:var(--line); background:rgba(16,12,26,.44)}
 .menu a.active{border-color:rgba(216,179,90,.38); background:rgba(216,179,90,.08)}
 
+/* =========================
+   BUTTONS / CARDS
+========================= */
 .btn{
   display:inline-flex;align-items:center;justify-content:center;gap:10px;
   padding:12px 14px;border-radius:14px;
@@ -109,22 +123,25 @@ p{margin:0 0 12px}
 }
 .hr{height:1px;background:var(--line);margin:16px 0}
 
+/* =========================
+   GRIDS
+========================= */
 .grid-2{display:grid;grid-template-columns:1.05fr .95fr;gap:16px}
 .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 @media (max-width: 960px){
   .grid-2,.grid-3{grid-template-columns:1fr}
 }
 
-/* HERO — výraznejší obrázok + správne 3 vrstvy pozadia */
+/* =========================
+   HERO (len na domovskej)
+========================= */
 .hero{
   --hero-bg: url('exorcisti.png');
-
   padding:82px 0 56px;
   position:relative;
   overflow:hidden;
   min-height:100vh;
 }
-
 
 .hero::before{
   content:"";
@@ -134,16 +151,14 @@ p{margin:0 0 12px}
     radial-gradient(900px 520px at 25% 10%, rgba(216,179,90,.18), transparent 60%),
     radial-gradient(900px 520px at 70% 20%, rgba(169,139,255,.20), transparent 60%),
     var(--hero-bg, none);
-  /* 3 hodnoty = 3 vrstvy */
   background-size: auto, auto, cover;
   background-repeat:no-repeat;
   background-position: 0 0, 0 0, 50% 45%;
-
-  /* výzor obrázka */
   opacity:.52;
   filter: contrast(145%) brightness(88%) saturate(115%);
   box-shadow: inset 0 0 140px rgba(255,220,150,.10);
 }
+
 .hero::after{
   content:"";
   position:absolute;
@@ -155,6 +170,7 @@ p{margin:0 0 12px}
     rgba(7,6,11,.82) 100%
   );
 }
+
 .hero > .container{position:relative;z-index:1}
 
 .sigils{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
@@ -202,6 +218,9 @@ p{margin:0 0 12px}
   color:rgba(242,238,252,.82);
 }
 
+/* =========================
+   FORMS
+========================= */
 .form{display:grid;gap:12px}
 label{
   font-size:.95rem;color:var(--muted);
@@ -218,6 +237,9 @@ input, textarea, select{
 }
 textarea{min-height:150px;resize:vertical}
 
+/* =========================
+   FOOTER / FLOAT
+========================= */
 .footer{
   padding:28px 0;
   border-top:1px solid var(--line);
@@ -240,184 +262,22 @@ textarea{min-height:150px;resize:vertical}
 
 .pillrow{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
 
-
-@media (max-width: 768px){
-  .hero{
-    --hero-bg: url('exorcisti-mobile.png');
-    min-height: 90vh;
-  }
-
-  .hero::before{
-    background-position: 50% 20%;
-    opacity: .65;
-    filter: contrast(140%) brightness(92%);
-  }
-
-  h1{
-    font-size: 2rem;
-  }
-}
-
-/* =========================================================
-   MOBILE + TABLET RESPONSIVE LAYER (Android + iOS)
-   vlož na KONIEC styles.css
-========================================================= */
-
-/* Základná “bezpečná” šírka a paddingy */
-.container{
-  max-width: 1100px; /* nechaj, ak už máš */
-}
-
-/* Lepšie správanie obrázkov/SVG na mobile */
-img, svg{
-  max-width: 100%;
-  height: auto;
-}
-
-/* ---- TABLET a menšie (<= 900px) ---- */
-@media (max-width: 900px){
-
-  /* Header: nech sa zalomí do 2 riadkov */
-  .nav-inner{
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-
-  /* Brand + logo */
-  .brand{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    min-width: 240px;
-  }
-
-  .brand .word{
-    white-space: nowrap;
-  }
-
-  /* Menu: nech sa môže zalomiť */
-  .menu{
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    gap: 10px;
-  }
-
-  /* Grid: 2 stĺpce -> 1 stĺpec */
-  .grid-2{
-    grid-template-columns: 1fr !important;
-  }
-
-  .grid-3{
-    grid-template-columns: 1fr 1fr !important;
-  }
-
-  /* Hero padding menší */
-  .hero{
-    padding-top: 24px;
-    padding-bottom: 24px;
-  }
-}
-
-/* ---- MOBILE (<= 600px) ---- */
-@media (max-width: 600px){
-
-  /* Globálne paddingy kontajnera */
-  .container{
-    padding-left: 16px;
-    padding-right: 16px;
-  }
-
-  /* Header: brand hore, menu pod ním */
-  .nav-inner{
-    align-items: flex-start;
-  }
-
-  .menu{
-    width: 100%;
-  }
-
-  .menu a{
-    padding: 10px 10px;
-  }
-
-  /* Kontakt tlačidlo v menu nech sa netlačí */
-  .menu .btn{
-    width: 100%;
-    text-align: center;
-  }
-
-  /* Nadpisy a texty trochu menšie */
-  h1{
-    font-size: clamp(26px, 7vw, 34px);
-    line-height: 1.15;
-  }
-
-  h2{
-    font-size: clamp(20px, 5.5vw, 26px);
-  }
-
-  /* Dvojtlačidlá pod sebou */
-  .pillrow{
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 10px;
-  }
-
-  .pillrow .btn{
-    width: 100%;
-    justify-content: center;
-  }
-
-  /* Hodnoty (sigils) nech sa zalomia do 2 stĺpcov */
-  .sigils{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-  }
-
-  .sigil{
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  /* Karty menej paddingu */
-  .card{
-    padding: 16px;
-  }
-
-  /* 3 KPI bloky -> 1 stĺpec */
-  .grid-3{
-    grid-template-columns: 1fr !important;
-  }
-
-  /* WhatsApp floating button nech nezavadzia */
-  .wa-float{
-    right: 14px;
-    bottom: 14px;
-  }
-}
-
-/* ---- EXTRA SMALL (<= 380px) ---- */
-@media (max-width: 380px){
-  .sigils{
-    grid-template-columns: 1fr;
-  }
-}
-
-
 /* ==============================
-   PAGE BACKGROUNDS (ALL PAGES)
+   BACKGROUNDS PER PAGE (subpages)
+   (pozadie súbory sú v root-e repo)
 ============================== */
-
-body{
-  background-color:#070707;
+.page-home,
+.page-ocista,
+.page-postup,
+.page-reiki,
+.page-kontakt{
   background-repeat:no-repeat;
   background-position:center top;
   background-size:cover;
+  background-color:#070707;
 }
 
-/* overlay vrstva pre čitateľnosť */
+/* overlay pre čitateľnosť textu na pozadí */
 body::before{
   content:"";
   position:fixed;
@@ -427,15 +287,81 @@ body::before{
   z-index:-1;
 }
 
-/* jednotlivé stránky */
-.page-home   { background-image:url("images/bg-home.jpg"); }
-.page-ocista { background-image:url("images/bg-ocista.jpg"); }
-.page-postup { background-image:url("images/bg-postup.jpg"); }
-.page-reiki  { background-image:url("images/bg-reiki.jpg"); }
-.page-kontakt{ background-image:url("images/bg-kontakt.jpg"); }
+.page-home   { background-image:url("bg-home.png"); }
+.page-ocista { background-image:url("bg-ocista.png"); }
+.page-postup { background-image:url("bg-postup.png"); }
+.page-reiki  { background-image:url("bg-reiki.png"); }
+.page-kontakt{ background-image:url("bg-kontakt.png"); }
 
-/* mobile: fixed pozadie často škube – radšej scroll */
+/* =========================
+   MOBILE HERO + GENERAL MOBILE
+========================= */
 @media (max-width: 768px){
+  .hero{
+    --hero-bg: url('exorcisti-mobile.png');
+    min-height: 90vh;
+    padding: 24px 0;
+  }
+
+  .hero::before{
+    background-position: 50% 20%;
+    opacity: .65;
+    filter: contrast(140%) brightness(92%);
+  }
+
+  /* fixed overlay môže na mobile škubať */
   body::before{ position:absolute; }
+
+  h1{ font-size: clamp(26px, 7vw, 34px); line-height:1.15; }
+  h2{ font-size: clamp(20px, 5.5vw, 26px); }
 }
 
+/* ---- TABLET a menšie (<= 900px) ---- */
+@media (max-width: 900px){
+  .nav-inner{ flex-wrap: wrap; gap: 10px; }
+  .brand{ gap: 10px; min-width: 240px; }
+  .menu{ flex-wrap: wrap; justify-content: flex-start; gap: 10px; }
+  .grid-2{ grid-template-columns: 1fr !important; }
+  .grid-3{ grid-template-columns: 1fr 1fr !important; }
+}
+
+/* ---- MOBILE (<= 600px) ---- */
+@media (max-width: 600px){
+  .container{ padding-left: 16px; padding-right: 16px; }
+
+  .nav-inner{ align-items: flex-start; }
+  .menu{ width: 100%; }
+  .menu a{ padding: 10px 10px; }
+
+  .menu .btn{
+    width: 100%;
+    text-align: center;
+  }
+
+  .pillrow{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .pillrow .btn{
+    width: 100%;
+    justify-content: center;
+  }
+
+  .sigils{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .sigil{ display: flex; align-items: center; gap: 8px; }
+
+  .card{ padding: 16px; }
+  .grid-3{ grid-template-columns: 1fr !important; }
+
+  .wa-float{ right: 14px; bottom: 14px; }
+}
+
+/* ---- EXTRA SMALL (<= 380px) ---- */
+@media (max-width: 380px){
+  .sigils{ grid-template-columns: 1fr; }
+}

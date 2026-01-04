@@ -257,3 +257,150 @@ textarea{min-height:150px;resize:vertical}
     font-size: 2rem;
   }
 }
+
+/* =========================================================
+   MOBILE + TABLET RESPONSIVE LAYER (Android + iOS)
+   vlož na KONIEC styles.css
+========================================================= */
+
+/* Základná “bezpečná” šírka a paddingy */
+.container{
+  max-width: 1100px; /* nechaj, ak už máš */
+}
+
+/* Lepšie správanie obrázkov/SVG na mobile */
+img, svg{
+  max-width: 100%;
+  height: auto;
+}
+
+/* ---- TABLET a menšie (<= 900px) ---- */
+@media (max-width: 900px){
+
+  /* Header: nech sa zalomí do 2 riadkov */
+  .nav-inner{
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  /* Brand + logo */
+  .brand{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 240px;
+  }
+
+  .brand .word{
+    white-space: nowrap;
+  }
+
+  /* Menu: nech sa môže zalomiť */
+  .menu{
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+
+  /* Grid: 2 stĺpce -> 1 stĺpec */
+  .grid-2{
+    grid-template-columns: 1fr !important;
+  }
+
+  .grid-3{
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  /* Hero padding menší */
+  .hero{
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+}
+
+/* ---- MOBILE (<= 600px) ---- */
+@media (max-width: 600px){
+
+  /* Globálne paddingy kontajnera */
+  .container{
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  /* Header: brand hore, menu pod ním */
+  .nav-inner{
+    align-items: flex-start;
+  }
+
+  .menu{
+    width: 100%;
+  }
+
+  .menu a{
+    padding: 10px 10px;
+  }
+
+  /* Kontakt tlačidlo v menu nech sa netlačí */
+  .menu .btn{
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Nadpisy a texty trochu menšie */
+  h1{
+    font-size: clamp(26px, 7vw, 34px);
+    line-height: 1.15;
+  }
+
+  h2{
+    font-size: clamp(20px, 5.5vw, 26px);
+  }
+
+  /* Dvojtlačidlá pod sebou */
+  .pillrow{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .pillrow .btn{
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Hodnoty (sigils) nech sa zalomia do 2 stĺpcov */
+  .sigils{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .sigil{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* Karty menej paddingu */
+  .card{
+    padding: 16px;
+  }
+
+  /* 3 KPI bloky -> 1 stĺpec */
+  .grid-3{
+    grid-template-columns: 1fr !important;
+  }
+
+  /* WhatsApp floating button nech nezavadzia */
+  .wa-float{
+    right: 14px;
+    bottom: 14px;
+  }
+}
+
+/* ---- EXTRA SMALL (<= 380px) ---- */
+@media (max-width: 380px){
+  .sigils{
+    grid-template-columns: 1fr;
+  }
+}

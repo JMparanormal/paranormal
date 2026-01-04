@@ -1,4 +1,4 @@
-/* styles.css — finálna verzia (OPRAVA: Domov bez duplicitného BG + Kontakt čierne boky + doplnené .grid-3) */
+/* styles.css — finálna verzia (OPRAVA: Domov bez duplicitného BG + Kontakt čierne boky + .grid-3 + opravené zátvorky) */
 
 :root{
   --bg:#07060b;
@@ -141,7 +141,7 @@ body{
 .hr{height:1px;background:var(--line);margin:16px 0}
 
 /* =========================
-   GRIDS
+   GRIDS  ✅ OPRAVENÉ
 ========================= */
 .grid-2{
   display:grid;
@@ -149,7 +149,6 @@ body{
   gap:16px;
 }
 
-/* ✅ DOPLNENÉ – používaš v HTML (KPI bloky) */
 .grid-3{
   display:grid;
   grid-template-columns:repeat(3,1fr);
@@ -160,13 +159,13 @@ body{
    PER-PAGE BACKGROUNDS
 ========================= */
 
-/* DOMOV: úplne zakáž page background, aby nebol 2x obrázok */
+/* DOMOV: zakáž page background, aby nebol 2x obrázok */
 .page-home{
   background-image:none !important;
   background-color:transparent !important;
 }
 
-/* Ostatné stránky (ak chceš pozadie ako obrázok) */
+/* Ostatné stránky */
 .page-ocista,
 .page-postup,
 .page-reiki{
@@ -179,8 +178,7 @@ body{
 .page-postup{background-image:url("bg-postup.png")}
 .page-reiki{background-image:url("bg-reiki.png")}
 
-/* KONTAKT – definitívne čierne boky:
-   background shorthand prepíše gradient z body */
+/* KONTAKT – čierne boky (prepíše gradient) */
 .page-kontakt{
   background:#000 url("bg-kontakt.png") no-repeat center top;
   background-size:75% auto;
@@ -203,8 +201,7 @@ body::before{
   z-index:-1;
 }
 
-/* ✅ OPRAVA sivých bokov na KONTAKT:
-   vypneme dymový overlay len na tejto stránke */
+/* vypneme “dym” len na KONTAKT, aby boky neboli sivé */
 .page-kontakt::before{
   background:none !important;
 }

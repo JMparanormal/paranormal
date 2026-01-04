@@ -1,17 +1,17 @@
-/* styles.css — finálna verzia (OPRAVA: Domov bez duplicitného BG + Kontakt čierne boky) */
+/* =========================
+   GLOBAL THEME – UNIFIED
+========================= */
 
 :root{
-  --bg:#07060b;
-  --bg2:#0c0814;
+  --bg:#050408;
+  --bg2:#0b0912;
   --card:rgba(16,12,26,.76);
-  --cardSoftTop:rgba(16,12,26,.78);
-  --cardSoftBot:rgba(10,7,17,.58);
   --text:#f2eefc;
   --muted:rgba(242,238,252,.72);
   --line:rgba(220,210,255,.15);
   --gold:#d8b35a;
   --violet:#a98bff;
-  --shadow:0 18px 46px rgba(0,0,0,.58);
+  --shadow:0 18px 46px rgba(0,0,0,.6);
   --radius:18px;
   --max:1120px;
 }
@@ -20,110 +20,133 @@
 html,body{margin:0;padding:0}
 img,svg{max-width:100%;height:auto}
 
+/* =========================
+   GLOBAL BACKGROUND (JEDINÉ)
+========================= */
+body{
+  color:var(--text);
+  font-family: ui-serif, Georgia, "Times New Roman", serif;
+  line-height:1.65;
+
+  background:
+    radial-gradient(900px 520px at 15% -10%, rgba(169,139,255,.14), transparent 60%),
+    radial-gradient(900px 520px at 85% 0%, rgba(216,179,90,.12), transparent 60%),
+    radial-gradient(900px 520px at 50% 120%, rgba(255,77,109,.08), transparent 65%),
+    linear-gradient(180deg, var(--bg), var(--bg2));
+
+  background-attachment: fixed;
+}
+
+/* jemný tmavý overlay – zjednotí boky */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:radial-gradient(
+    ellipse at top,
+    rgba(0,0,0,.35),
+    rgba(0,0,0,.85)
+  );
+  pointer-events:none;
+  z-index:-1;
+}
+
+@media(max-width:768px){
+  body::before{position:absolute}
+}
+
+/* =========================
+   LAYOUT
+========================= */
 a{color:inherit;text-decoration:none}
 .container{max-width:var(--max);margin:0 auto;padding:0 18px}
 .section{padding:74px 0}
 .small{font-size:.98rem;color:var(--muted)}
-p{margin:0 0 12px}
 
 h1,h2,h3{line-height:1.15;margin:0 0 14px}
-h1{font-size:clamp(2.15rem,4.2vw,3.3rem)}
+h1{font-size:clamp(2.2rem,4.2vw,3.3rem)}
 h2{font-size:clamp(1.45rem,2.6vw,2.1rem)}
-h3{font-size:1.12rem}
-
-/* =========================
-   BASE (default background = gradients)
-========================= */
-body{
-  color:var(--text);
-  font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
-  line-height:1.65;
-
-  background:
-    radial-gradient(900px 520px at 20% -10%, rgba(169,139,255,.18), transparent 60%),
-    radial-gradient(900px 520px at 80% 0%, rgba(216,179,90,.14), transparent 60%),
-    radial-gradient(900px 520px at 55% 120%, rgba(255,77,109,.10), transparent 65%),
-    linear-gradient(180deg, var(--bg), var(--bg2));
-}
 
 /* =========================
    NAV
 ========================= */
 .nav{
   position:sticky;top:0;z-index:50;
-  background:rgba(7,6,11,.62);
+  background:rgba(7,6,11,.65);
   backdrop-filter:blur(12px);
   border-bottom:1px solid var(--line);
 }
-
 .nav-inner{
   display:flex;align-items:center;justify-content:space-between;
   gap:12px;padding:14px 0;
 }
-
-.brand{
-  display:flex;align-items:center;gap:12px;
-  font-weight:900;
-}
-
-.brand-logo{
-  width:34px;height:34px;
-  display:block;
-  filter:drop-shadow(0 10px 18px rgba(0,0,0,.55));
-}
-
+.brand{display:flex;align-items:center;gap:12px;font-weight:900}
+.brand-logo{width:34px;height:34px}
 .brand .word{
-  font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-  font-size:.96rem;
-  letter-spacing:.8px;
-  white-space:nowrap;
+  font-family:ui-sans-serif,system-ui;
+  font-size:.96rem;letter-spacing:.8px;
 }
-
-.menu{
-  display:flex;flex-wrap:wrap;gap:10px;
-  align-items:center;
-}
-
+.menu{display:flex;flex-wrap:wrap;gap:10px}
 .menu a{
   padding:9px 11px;border-radius:999px;
   border:1px solid transparent;
-  color:rgba(242,238,252,.82);
-  font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-  font-size:.95rem;
+  font-family:ui-sans-serif,system-ui;
 }
-
 .menu a:hover{
   border-color:var(--line);
-  background:rgba(16,12,26,.44);
+  background:rgba(16,12,26,.44)
 }
 
 /* =========================
-   BUTTONS / CARDS
+   HERO – DOMOV (JEDINÝ OBRÁZOK)
+========================= */
+.hero{
+  --hero-bg:url("exorcisti.png");
+  min-height:100vh;
+  position:relative;
+  overflow:hidden;
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:-40px;
+  background:
+    radial-gradient(900px 520px at 30% 10%, rgba(216,179,90,.18), transparent 60%),
+    radial-gradient(900px 520px at 70% 20%, rgba(169,139,255,.22), transparent 60%),
+    var(--hero-bg);
+  background-size:auto,auto,cover;
+  background-position:0 0,0 0,50% 45%;
+  opacity:.55;
+}
+
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    90deg,
+    #050408 0%,
+    rgba(5,4,8,.45) 50%,
+    #050408 100%
+  );
+}
+
+.hero > .container{position:relative;z-index:1}
+
+/* =========================
+   CARDS / BUTTONS
 ========================= */
 .btn{
   display:inline-flex;align-items:center;justify-content:center;
-  gap:10px;
   padding:12px 14px;border-radius:14px;
   border:1px solid rgba(216,179,90,.36);
   background:rgba(16,12,26,.62);
-  color:var(--text);
-  box-shadow:0 10px 26px rgba(0,0,0,.35);
-  font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  font-family:ui-sans-serif,system-ui;
 }
-
-.btn:hover{transform:translateY(-1px)}
-.btn.row{width:100%}
-
 .btn.primary{
   background:linear-gradient(135deg,#d8b35a,#a98bff);
-  color:#08060f;
-  font-weight:900;
-  border:0;
-}
-
-.btn.ghost{
-  border-color:var(--line);
-  background:rgba(16,12,26,.34);
+  color:#08060f;font-weight:900;border:0;
 }
 
 .card{
@@ -133,12 +156,6 @@ body{
   padding:20px;
   box-shadow:var(--shadow);
 }
-
-.card.soft{
-  background:linear-gradient(180deg, var(--cardSoftTop), var(--cardSoftBot));
-}
-
-.hr{height:1px;background:var(--line);margin:16px 0}
 
 /* =========================
    GRIDS
@@ -150,170 +167,8 @@ body{
 }
 
 /* =========================
-   HERO – DOMOV (len 1 obrázok v hero)
-========================= */
-.hero{
-  --hero-bg:url("exorcisti.png");
-  min-height:100vh;
-  position:relative;
-  overflow:hidden;
-  padding:82px 0 56px;
-}
-
-.hero::before{
-  content:"";
-  position:absolute;
-  inset:-40px;
-  background:
-    radial-gradient(900px 520px at 25% 10%, rgba(216,179,90,.18), transparent 60%),
-    radial-gradient(900px 520px at 70% 20%, rgba(169,139,255,.20), transparent 60%),
-    var(--hero-bg);
-  background-size:auto,auto,cover;
-  background-position:0 0,0 0,50% 45%;
-  background-repeat:no-repeat;
-  opacity:.55;
-}
-
-.hero::after{
-  content:"";
-  position:absolute;inset:0;
-  background:linear-gradient(90deg,#07060b 0%,rgba(7,6,11,.5) 50%,#07060b 100%);
-}
-
-.hero>.container{position:relative;z-index:1}
-
-/* =========================
-   EXTRA UI blocks (used on pages)
-========================= */
-.pillrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
-
-.quote{
-  border-left:4px solid rgba(169,139,255,.56);
-  padding:14px 14px;
-  background:rgba(169,139,255,.08);
-  border-radius:14px;
-  color:rgba(242,238,252,.82);
-}
-
-.notice{
-  border-left:4px solid rgba(216,179,90,.62);
-  padding:12px 12px;
-  background:rgba(216,179,90,.09);
-  border-radius:14px;
-  color:rgba(242,238,252,.78);
-}
-
-/* Forms */
-.form{display:grid;gap:12px}
-label{
-  font-size:.95rem;
-  color:var(--muted);
-  font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-}
-input,textarea,select{
-  width:100%;
-  padding:12px 12px;
-  border-radius:14px;
-  border:1px solid rgba(220,210,255,.18);
-  background:rgba(7,6,11,.55);
-  color:var(--text);
-  outline:none;
-  font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-}
-textarea{min-height:150px;resize:vertical}
-
-/* Floating WhatsApp button */
-.wa-float{
-  position:fixed;right:18px;bottom:18px;z-index:60;
-  border-radius:999px;
-  padding:12px 14px;
-  background:linear-gradient(135deg, rgba(216,179,90,.94), rgba(169,139,255,.86));
-  color:#08060f;
-  font-weight:950;
-  box-shadow:var(--shadow);
-  border:0;
-  font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-}
-.wa-float:hover{transform:translateY(-1px)}
-
-/* Footer */
-.footer{
-  padding:28px 0;
-  border-top:1px solid var(--line);
-  color:rgba(242,238,252,.65);
-  background:rgba(7,6,11,.60);
-}
-
-/* =========================
-   PER-PAGE BACKGROUNDS
-========================= */
-
-/* DOMOV: úplne zakáž page background, aby nebol 2x obrázok */
-.page-home{
-  background-image:none !important;
-  background-color:transparent !important;
-}
-
-/* Ostatné stránky (ak chceš pozadie ako obrázok) */
-.page-ocista,
-.page-postup,
-.page-reiki{
-  background-repeat:no-repeat;
-  background-position:center top;
-  background-size:cover;
-}
-
-.page-ocista{background-image:url("bg-ocista.png")}
-.page-postup{background-image:url("bg-postup.png")}
-.page-reiki{background-image:url("bg-reiki.png")}
-
-/* KONTAKT – definitívne čierne boky:
-   !!! background shorthand prepíše gradient z body !!! */
-.page-kontakt{
-  background: #000 url("bg-kontakt.png") no-repeat center top;
-  background-size: 75% auto;
-}
-
-/* kontakt na mobile */
-@media(max-width:768px){
-  .page-kontakt{ background-size:95% auto; }
-}
-
-/* =========================
-   OVERLAY (všeobecný)
-========================= */
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  background:radial-gradient(ellipse at top, rgba(0,0,0,.35), rgba(0,0,0,.78));
-  pointer-events:none;
-  z-index:-1;
-}
-
-/* Ak chceš, aby Kontakt nemal sivý “dym” (voliteľné, ale často pomôže):
-   odkomentuj tento blok. */
-/*
-.page-kontakt::before{
-  background: none !important;
-}
-*/
-
-@media(max-width:768px){
-  body::before{position:absolute}
-}
-
-/* =========================
    MOBILE
 ========================= */
-@media(max-width:900px){
-  .nav-inner{flex-wrap:wrap;gap:10px}
-  .menu{justify-content:flex-start}
-}
-
 @media(max-width:600px){
   .container{padding:0 16px}
-  .grid-2,.grid-3{grid-template-columns:1fr}
-  .pillrow{display:grid;grid-template-columns:1fr}
-  .pillrow .btn{width:100%}
 }

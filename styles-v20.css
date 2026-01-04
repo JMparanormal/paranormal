@@ -1,0 +1,547 @@
+/* styles.css v=20 — TOTÁLNY REDESIGN (okult dossier + sigil kruhy + nový layout)
+   Texty nechávame 1:1, mení sa len vizuál a rozloženie.
+*/
+
+:root{
+  --bg:#04020a;
+  --bg2:#070314;
+  --paper:#0a0618;
+  --ink:#f4f0ff;
+  --muted:rgba(244,240,255,.72);
+
+  --gold:#d7b24a;
+  --violet:#a98bff;
+  --blood:#ff2e55;
+
+  --line:rgba(220,210,255,.12);
+  --line2:rgba(215,178,74,.14);
+
+  --radius:18px;
+  --shadow: 0 22px 70px rgba(0,0,0,.70);
+  --max:1120px;
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  color:var(--ink);
+  font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
+  line-height:1.65;
+  background:
+    radial-gradient(900px 520px at 18% -10%, rgba(169,139,255,.18), transparent 60%),
+    radial-gradient(900px 520px at 85% 0%, rgba(215,178,74,.14), transparent 60%),
+    radial-gradient(980px 520px at 60% 120%, rgba(255,46,85,.10), transparent 65%),
+    linear-gradient(180deg, var(--bg), var(--bg2));
+  overflow-x:hidden;
+}
+
+a{color:inherit;text-decoration:none}
+.container{max-width:var(--max);margin:0 auto;padding:0 18px}
+.section{padding:80px 0}
+.small{font-size:.98rem;color:var(--muted)}
+h1,h2,h3{line-height:1.1;margin:0 0 14px}
+h1{font-size:clamp(2.3rem, 4.8vw, 3.6rem); letter-spacing:.3px}
+h2{font-size:clamp(1.55rem, 2.9vw, 2.3rem)}
+h3{font-size:1.12rem}
+p{margin:0 0 12px}
+
+/* Background ornaments */
+.bg-orbit{
+  position:fixed; inset:-200px;
+  pointer-events:none; z-index:0;
+  background:
+    radial-gradient(circle at 50% 40%, rgba(215,178,74,.08), transparent 55%),
+    repeating-radial-gradient(circle at 50% 42%,
+      rgba(215,178,74,.07) 0px,
+      rgba(215,178,74,.07) 1px,
+      rgba(0,0,0,0) 10px,
+      rgba(0,0,0,0) 18px
+    );
+  opacity:.35;
+  filter: blur(0.2px);
+}
+.bg-grain{
+  position:fixed; inset:0;
+  pointer-events:none; z-index:0;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      rgba(255,255,255,.03) 0px,
+      rgba(255,255,255,.03) 1px,
+      rgba(0,0,0,0) 3px,
+      rgba(0,0,0,0) 6px
+    );
+  opacity:.10;
+  mix-blend-mode: overlay;
+}
+
+/* NAV */
+.nav{
+  position:sticky; top:0; z-index:60;
+  background:rgba(4,2,10,.74);
+  backdrop-filter: blur(14px);
+  border-bottom:1px solid rgba(215,178,74,.12);
+  box-shadow: 0 10px 40px rgba(0,0,0,.40);
+}
+.nav-inner{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:12px; padding:14px 0;
+}
+
+.brand{
+  display:flex; align-items:center; gap:12px;
+  font-weight:900; letter-spacing:.55px;
+}
+.brand .word{
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-size:.96rem;
+  letter-spacing:1.6px;
+  text-transform:uppercase;
+}
+.brand svg{
+  width:34px;height:34px;
+  filter: drop-shadow(0 14px 22px rgba(0,0,0,.75));
+}
+
+/* Menu */
+.menu{
+  display:flex; flex-wrap:wrap; gap:10px;
+  align-items:center; justify-content:flex-end;
+}
+.menu a{
+  padding:9px 12px; border-radius:999px;
+  color:rgba(244,240,255,.86);
+  border:1px solid transparent;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-size:.95rem;
+}
+.menu a:hover{
+  border-color:rgba(215,178,74,.20);
+  background:rgba(10,6,22,.52);
+}
+.menu a.active{
+  border-color:rgba(255,46,85,.38);
+  background:rgba(255,46,85,.10);
+}
+
+.menu-toggle{
+  display:none;
+  border:1px solid rgba(215,178,74,.18);
+  background:rgba(10,6,22,.55);
+  color:rgba(244,240,255,.92);
+  padding:10px 12px;
+  border-radius:12px;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+@media (max-width: 860px){
+  .menu{display:none}
+  .menu.open{
+    display:flex;
+    position:absolute;
+    right:18px;
+    top:62px;
+    flex-direction:column;
+    align-items:stretch;
+    gap:8px;
+    padding:12px;
+    border-radius:16px;
+    background:rgba(4,2,10,.92);
+    border:1px solid rgba(215,178,74,.14);
+    box-shadow: var(--shadow);
+  }
+  .menu-toggle{display:inline-flex}
+}
+
+/* Buttons */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:10px;
+  padding:12px 14px; border-radius:14px;
+  border:1px solid rgba(215,178,74,.24);
+  background:linear-gradient(180deg, rgba(12,8,26,.86), rgba(7,4,16,.62));
+  color:var(--ink);
+  box-shadow: 0 14px 34px rgba(0,0,0,.46);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+.btn:hover{transform:translateY(-1px)}
+.btn-row{width:100%}
+.btn-primary{
+  border-color: rgba(255,46,85,.30);
+  background: linear-gradient(135deg, rgba(255,46,85,.90), rgba(169,139,255,.70));
+  color:#090414;
+  font-weight:950;
+  box-shadow: 0 22px 60px rgba(0,0,0,.58);
+}
+.btn-ghost{
+  border-color:rgba(220,210,255,.12);
+  background:rgba(10,6,22,.36);
+}
+.btn-nav{
+  border-color:rgba(215,178,74,.28);
+  background:rgba(10,6,22,.52);
+}
+
+/* HERO — komplet nový layout */
+.hero{
+  position:relative;
+  padding:68px 0 0;
+  z-index:1;
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:-40px;
+  background:
+    radial-gradient(900px 520px at 22% 10%, rgba(255,46,85,.20), transparent 60%),
+    radial-gradient(900px 520px at 76% 20%, rgba(169,139,255,.20), transparent 60%),
+    url("exorcisti.png");
+  background-size:auto, auto, cover;
+  background-repeat:no-repeat;
+  background-position:0 0, 0 0, 50% 45%;
+  opacity:.55;
+  filter: contrast(155%) brightness(78%) saturate(122%);
+}
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(1100px 700px at 50% 35%, rgba(0,0,0,0), rgba(0,0,0,.72)),
+    linear-gradient(90deg, rgba(4,2,10,.92), rgba(4,2,10,.58) 48%, rgba(4,2,10,.90));
+}
+.hero-grid{
+  position:relative;
+  z-index:2;
+  display:grid;
+  grid-template-columns: 1.12fr .88fr;
+  gap:18px;
+  align-items:start;
+  padding:24px 0 64px;
+}
+@media (max-width: 980px){
+  .hero-grid{grid-template-columns:1fr}
+}
+@media (max-width: 768px){
+  .hero::before{
+    background: url("exorcisti-mobile.png");
+    background-size: cover;
+    background-position: 50% 18%;
+    opacity:.62;
+    filter: contrast(150%) brightness(82%) saturate(118%);
+  }
+}
+
+/* Dossier block */
+.dossier{
+  background:
+    linear-gradient(180deg, rgba(10,6,22,.86), rgba(6,4,14,.66));
+  border:1px solid rgba(215,178,74,.14);
+  border-radius: calc(var(--radius) + 8px);
+  box-shadow: var(--shadow);
+  padding:22px;
+  position:relative;
+  overflow:hidden;
+}
+.dossier::before{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  background:
+    repeating-linear-gradient(135deg,
+      rgba(215,178,74,.08) 0px,
+      rgba(215,178,74,.08) 1px,
+      rgba(0,0,0,0) 8px,
+      rgba(0,0,0,0) 16px
+    );
+  opacity:.25;
+  pointer-events:none;
+}
+.dossier > *{position:relative}
+
+.dossier-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:10px;
+}
+.stamp{
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-weight:900;
+  letter-spacing:2.2px;
+  font-size:.78rem;
+  padding:7px 10px;
+  border-radius:999px;
+  border:1px solid rgba(255,46,85,.22);
+  background:rgba(255,46,85,.08);
+  text-transform:uppercase;
+}
+.meta{
+  display:flex; align-items:center; gap:8px;
+  color:rgba(244,240,255,.72);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-size:.9rem;
+}
+.meta-dot{
+  width:9px;height:9px;border-radius:50%;
+  background: radial-gradient(circle at 30% 30%, rgba(255,46,85,.95), rgba(169,139,255,.75));
+  box-shadow: 0 0 0 3px rgba(255,46,85,.10);
+}
+
+.cta-row{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
+
+/* Sigils chips */
+.sigils{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
+.sigil{
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-size:.88rem;
+  padding:7px 10px;
+  border-radius:999px;
+  border:1px solid rgba(255,46,85,.20);
+  background:rgba(255,46,85,.06);
+  color:rgba(244,240,255,.88);
+  display:inline-flex; align-items:center; gap:8px;
+}
+.sigil svg{width:16px;height:16px;opacity:.92}
+
+/* Quote & notice */
+.quote{
+  margin-top:16px;
+  border-left:4px solid rgba(169,139,255,.64);
+  padding:14px 14px;
+  background:rgba(169,139,255,.08);
+  border-radius:14px;
+  color:rgba(244,240,255,.86);
+}
+.notice{
+  border-left:4px solid rgba(215,178,74,.72);
+  padding:12px 12px;
+  background:rgba(215,178,74,.09);
+  border-radius:14px;
+  color:rgba(244,240,255,.78);
+}
+
+/* Ritual panel (right) */
+.ritual-panel{
+  position:relative;
+  display:grid;
+  gap:14px;
+}
+.sigil-board{
+  position:relative;
+  border-radius: calc(var(--radius) + 8px);
+  border:1px solid rgba(220,210,255,.10);
+  background:rgba(10,6,22,.50);
+  box-shadow: 0 18px 60px rgba(0,0,0,.40);
+  height:220px;
+  overflow:hidden;
+}
+.sigil-ring{
+  position:absolute;
+  inset:-30px;
+  border-radius:50%;
+  border:1px solid rgba(215,178,74,.18);
+  box-shadow: inset 0 0 60px rgba(255,46,85,.10);
+  transform: rotate(10deg);
+}
+.sigil-ring.ring2{ inset:-60px; border-color: rgba(169,139,255,.16); transform: rotate(-12deg); }
+.sigil-ring.ring3{ inset:-95px; border-color: rgba(255,46,85,.14); transform: rotate(24deg); }
+.sigil-center{
+  position:absolute;
+  inset:44px;
+  border-radius:50%;
+  border:1px dashed rgba(215,178,74,.22);
+  background: radial-gradient(circle at 50% 50%, rgba(255,46,85,.10), rgba(0,0,0,0));
+}
+
+/* Cards */
+.card{
+  background: linear-gradient(180deg, rgba(10,6,22,.84), rgba(6,4,14,.66));
+  border:1px solid rgba(215,178,74,.12);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding:20px;
+  position:relative;
+  overflow:hidden;
+}
+.card::before{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  background:
+    radial-gradient(700px 260px at 15% 0%, rgba(255,46,85,.12), transparent 60%),
+    radial-gradient(520px 260px at 85% 10%, rgba(169,139,255,.12), transparent 60%),
+    radial-gradient(520px 260px at 45% 120%, rgba(215,178,74,.10), transparent 60%);
+  opacity:.75;
+  pointer-events:none;
+}
+.card > *{position:relative}
+.card-strong{
+  border-color: rgba(255,46,85,.16);
+}
+.card-soft{
+  border-color: rgba(220,210,255,.10);
+}
+
+/* Lists */
+.list{display:grid; gap:10px; margin:0; padding:0; list-style:none}
+.list li{
+  padding:12px 12px;
+  border-radius:14px;
+  border:1px solid rgba(220,210,255,.10);
+  background:rgba(6,4,14,.55);
+}
+
+.hr{height:1px;background:rgba(220,210,255,.14);margin:16px 0}
+
+/* Hero bottom cut */
+.hero-cut{
+  height:70px;
+  background: linear-gradient(180deg, rgba(0,0,0,0), rgba(4,2,10,.90));
+  clip-path: polygon(0 0, 100% 0, 100% 45%, 0 100%);
+}
+
+/* Section head */
+.section-head{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:14px;
+}
+.divider-ritual{
+  height:10px;
+  flex:1;
+  max-width: 380px;
+  border-bottom:1px solid rgba(215,178,74,.18);
+  background:
+    radial-gradient(circle at 15% 50%, rgba(255,46,85,.35), rgba(0,0,0,0) 55%),
+    radial-gradient(circle at 85% 50%, rgba(169,139,255,.35), rgba(0,0,0,0) 55%);
+  opacity:.45;
+}
+
+/* Pillars — nový layout namiesto grid-3 */
+.pillars{
+  margin-top:18px;
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:12px;
+}
+@media (max-width: 960px){
+  .pillars{grid-template-columns:1fr}
+}
+.pillar{
+  padding:18px;
+  border-radius: calc(var(--radius) + 6px);
+  border:1px solid rgba(220,210,255,.10);
+  background:
+    linear-gradient(180deg, rgba(10,6,22,.78), rgba(6,4,14,.62));
+  box-shadow: 0 16px 50px rgba(0,0,0,.40);
+  position:relative;
+  overflow:hidden;
+}
+.pillar::before{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  background:
+    repeating-linear-gradient(45deg,
+      rgba(255,46,85,.07) 0px,
+      rgba(255,46,85,.07) 1px,
+      rgba(0,0,0,0) 10px,
+      rgba(0,0,0,0) 18px
+    );
+  opacity:.22;
+  pointer-events:none;
+}
+.pillar > *{position:relative}
+.pillar-top{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:8px;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+.pillar-mark{
+  width:34px;height:34px;border-radius:12px;
+  display:inline-flex;align-items:center;justify-content:center;
+  border:1px solid rgba(215,178,74,.18);
+  background:rgba(215,178,74,.08);
+  color:rgba(244,240,255,.90);
+  font-weight:950;
+}
+
+/* Altar section */
+.altar{
+  position:relative;
+}
+.altar-grid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:16px;
+  align-items:stretch;
+}
+@media (max-width: 960px){
+  .altar-grid{grid-template-columns:1fr}
+}
+.altar-card{
+  min-height: 320px;
+}
+.altar-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:10px;
+  padding:7px 10px;
+  border-radius:999px;
+  border:1px solid rgba(255,46,85,.22);
+  background:rgba(255,46,85,.08);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-weight:950;
+  letter-spacing:1.6px;
+  font-size:.78rem;
+  text-transform:uppercase;
+}
+.altar-badge.violet{
+  border-color: rgba(169,139,255,.22);
+  background: rgba(169,139,255,.08);
+}
+.altar-visual{
+  position:relative;
+  overflow:hidden;
+}
+.altar-ink{
+  position:absolute;
+  inset:-40px;
+  background:
+    radial-gradient(600px 400px at 70% 25%, rgba(169,139,255,.22), transparent 60%),
+    radial-gradient(700px 480px at 20% 80%, rgba(255,46,85,.16), transparent 60%),
+    url("https://upload.wikimedia.org/wikipedia/commons/8/81/Sacred_Geometry_Construction_with_Color.jpg");
+  background-size: auto, auto, cover;
+  background-position: 0 0, 0 0, 85% 25%;
+  opacity:.22;
+  filter: contrast(125%) saturate(95%) brightness(90%);
+}
+.altar-content{position:relative}
+
+/* Footer */
+.footer{
+  padding:28px 0;
+  border-top:1px solid rgba(215,178,74,.12);
+  color:rgba(244,240,255,.62);
+  background:rgba(4,2,10,.72);
+  position:relative;
+  z-index:1;
+}
+
+/* WhatsApp float */
+.wa-float{
+  position:fixed; right:18px; bottom:18px; z-index:70;
+  border-radius:999px;
+  padding:12px 14px;
+  background: linear-gradient(135deg, rgba(255,46,85,.92), rgba(169,139,255,.78));
+  color:#090414;
+  font-weight:950;
+  box-shadow: 0 22px 60px rgba(0,0,0,.65);
+  border:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+.wa-float:hover{transform:translateY(-1px)}

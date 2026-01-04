@@ -138,7 +138,7 @@ h2{font-size:clamp(1.45rem,2.6vw,2.1rem)}
 
 /* ❌ DOMOV – žiadne page pozadie (OPRAVA) */
 .page-home{
-  background-image:none !important;
+  background-image:none;
 }
 
 /* ostatné stránky */
@@ -193,6 +193,7 @@ body::before{
   .container{padding:0 16px}
   .grid-2,.grid-3{grid-template-columns:1fr}
 }
+
 
 
 

@@ -15,17 +15,85 @@
 <header class="nav">
   <div class="container nav-inner">
     <a class="brand" href="index.html" aria-label="Domov">
-      <svg viewBox="0 0 64 64" aria-hidden="true">
-        <defs>
-          <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stop-color="#d8b35a"/>
-            <stop offset="1" stop-color="#a98bff"/>
-          </linearGradient>
-        </defs>
-        <circle cx="32" cy="32" r="28" fill="none" stroke="url(#g)" stroke-width="2.5"/>
-        <path d="M32 12 L37 27 L52 32 L37 37 L32 52 L27 37 L12 32 L27 27 Z" fill="none" stroke="url(#g)" stroke-width="2.2" stroke-linejoin="round"/>
-        <path d="M32 18v28M18 32h28" stroke="rgba(242,238,252,.85)" stroke-width="2" stroke-linecap="round"/>
-      </svg>
+<svg viewBox="0 0 64 64" aria-hidden="true" class="brand-logo">
+  <defs>
+    <!-- Gold gradient (ladí s tvojím dizajnom) -->
+    <linearGradient id="sealGold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff2c6"/>
+      <stop offset="0.45" stop-color="#d8b35a"/>
+      <stop offset="1" stop-color="#fff2c6"/>
+    </linearGradient>
+
+    <!-- Jemný paranormálny glow -->
+    <filter id="sealGlow" x="-35%" y="-35%" width="170%" height="170%">
+      <feGaussianBlur stdDeviation="1.2" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Silnejší glow pre 4 uzly -->
+    <filter id="sealFlare" x="-70%" y="-70%" width="240%" height="240%">
+      <feGaussianBlur stdDeviation="2.2" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Prstence + osi -->
+  <g fill="none" stroke="url(#sealGold)" stroke-linecap="round" stroke-linejoin="round" filter="url(#sealGlow)">
+    <!-- outer + inner ring -->
+    <circle cx="32" cy="32" r="28" stroke-width="2.2"/>
+    <circle cx="32" cy="32" r="24" stroke-width="1.6"/>
+
+    <!-- axes -->
+    <path d="M32 8 L32 56" stroke-width="2"/>
+    <path d="M8 32 L56 32" stroke-width="2"/>
+
+    <!-- inner circle + core -->
+    <circle cx="32" cy="32" r="12" stroke-width="1.6"/>
+    <circle cx="32" cy="32" r="4" stroke-width="1.6"/>
+  </g>
+
+  <!-- 4 uzly (N/E/S/W) -->
+  <g filter="url(#sealFlare)" fill="#fff2c6" stroke="url(#sealGold)" stroke-width="1.2">
+    <circle cx="32" cy="4.5" r="1.6"/>
+    <circle cx="59.5" cy="32" r="1.6"/>
+    <circle cx="32" cy="59.5" r="1.6"/>
+    <circle cx="4.5" cy="32" r="1.6"/>
+
+    <!-- malé “lock” diamanty na E/W -->
+    <path d="M55 32 L57.6 29.4 L60.2 32 L57.6 34.6 Z" fill="none"/>
+    <path d="M9 32 L6.4 29.4 L3.8 32 L6.4 34.6 Z" fill="none"/>
+  </g>
+
+  <!-- “rune-like” značky po prstenci (abstraktné sigily, bez textu) -->
+  <g stroke="url(#sealGold)" stroke-width="1.2" stroke-linecap="round" opacity="0.95" filter="url(#sealGlow)">
+    <!-- 12 jednoduchých značiek okolo -->
+    <path d="M32 9.5 l0 3.6"/>
+    <path d="M41.7 11.5 l-2.1 3.0"/>
+    <path d="M49.6 17.8 l-3.2 1.6"/>
+    <path d="M54.5 26.0 l-3.6 0"/>
+    <path d="M52.5 37.8 l-3.2 -1.6"/>
+    <path d="M45.2 48.5 l-2.1 -3.0"/>
+    <path d="M32 54.5 l0 -3.6"/>
+    <path d="M22.3 52.5 l2.1 -3.0"/>
+    <path d="M14.4 46.2 l3.2 -1.6"/>
+    <path d="M9.5 38.0 l3.6 0"/>
+    <path d="M11.5 26.2 l3.2 1.6"/>
+    <path d="M18.8 15.5 l2.1 3.0"/>
+
+    <!-- 4 “uzlové” krížiky -->
+    <path d="M18 20 l3.2 3.2 M21.2 20 l-3.2 3.2"/>
+    <path d="M46 20 l3.2 3.2 M49.2 20 l-3.2 3.2"/>
+    <path d="M18 44 l3.2 3.2 M21.2 44 l-3.2 3.2"/>
+    <path d="M46 44 l3.2 3.2 M49.2 44 l-3.2 3.2"/>
+  </g>
+</svg>
+
       <span class="word">PARANORMAL.SK</span>
     </a>
 
@@ -178,3 +246,4 @@
 <script src="script.js"></script>
 </body>
 </html>
+

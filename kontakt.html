@@ -12,12 +12,73 @@
 <header class="nav">
   <div class="container nav-inner">
     <a class="brand" href="index.html">
-      <svg viewBox="0 0 64 64" aria-hidden="true">
-        <defs><linearGradient id="g5" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d8b35a"/><stop offset="1" stop-color="#a98bff"/></linearGradient></defs>
-        <circle cx="32" cy="32" r="28" fill="none" stroke="url(#g5)" stroke-width="2.5"/>
-        <path d="M32 12 L37 27 L52 32 L37 37 L32 52 L27 37 L12 32 L27 27 Z" fill="none" stroke="url(#g5)" stroke-width="2.2" stroke-linejoin="round"/>
-        <path d="M32 18v28M18 32h28" stroke="rgba(242,238,252,.85)" stroke-width="2" stroke-linecap="round"/>
-      </svg>
+<svg viewBox="0 0 64 64"
+     aria-hidden="true"
+     class="brand-logo"
+     focusable="false">
+
+  <defs>
+    <!-- Gold gradient -->
+    <linearGradient id="logo-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff2c6"/>
+      <stop offset="0.45" stop-color="#d8b35a"/>
+      <stop offset="1" stop-color="#fff2c6"/>
+    </linearGradient>
+
+    <!-- Jemný ochranný glow -->
+    <filter id="logo-glow" x="-35%" y="-35%" width="170%" height="170%">
+      <feGaussianBlur stdDeviation="1.2" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Silnejší glow pre 4 uzly -->
+    <filter id="logo-flare" x="-70%" y="-70%" width="240%" height="240%">
+      <feGaussianBlur stdDeviation="2.4" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- ZÁKLADNÁ PEČAŤ -->
+  <g fill="none"
+     stroke="url(#logo-gold)"
+     stroke-linecap="round"
+     stroke-linejoin="round"
+     filter="url(#logo-glow)">
+
+    <!-- vonkajší ochranný kruh -->
+    <circle cx="32" cy="32" r="28" stroke-width="2.4"/>
+
+    <!-- vnútorný kruh -->
+    <circle cx="32" cy="32" r="20" stroke-width="1.6"/>
+
+    <!-- osi (axis mundi) -->
+    <path d="M32 6 L32 58" stroke-width="2"/>
+    <path d="M6 32 L58 32" stroke-width="2"/>
+
+    <!-- stred -->
+    <circle cx="32" cy="32" r="4" stroke-width="1.6"/>
+  </g>
+
+  <!-- 4 STRÁŽNE BODY -->
+  <g fill="#fff2c6"
+     stroke="url(#logo-gold)"
+     stroke-width="1.2"
+     filter="url(#logo-flare)">
+
+    <circle cx="32" cy="4.5" r="1.8"/>
+    <circle cx="59.5" cy="32" r="1.8"/>
+    <circle cx="32" cy="59.5" r="1.8"/>
+    <circle cx="4.5" cy="32" r="1.8"/>
+  </g>
+
+</svg>
+
       <span class="word">PARANORMAL.SK</span>
     </a>
     <nav class="menu">
@@ -120,6 +181,7 @@
 <script src="script.js"></script>
 </body>
 </html>
+
 
 
 

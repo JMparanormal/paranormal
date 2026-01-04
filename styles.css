@@ -1,4 +1,4 @@
-/* styles.css — kompletná verzia (hero + backgrounds per page + mobile responsive) */
+/* styles.css — finálna verzia (hero + per-page backgrounds + mobile) */
 
 :root{
   --bg:#07060b;
@@ -18,20 +18,20 @@
 
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
-img, svg{max-width:100%; height:auto}
+img,svg{max-width:100%;height:auto}
 
+/* =========================
+   BASE
+========================= */
 body{
   color:var(--text);
   font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
   line-height:1.65;
-
-  /* základ bez obrázka — obrázky riešime cez .page-* */
   background:
     radial-gradient(900px 520px at 20% -10%, rgba(169,139,255,.18), transparent 60%),
     radial-gradient(900px 520px at 80% 0%, rgba(216,179,90,.14), transparent 60%),
     radial-gradient(900px 520px at 55% 120%, rgba(255,77,109,.10), transparent 65%),
     linear-gradient(180deg, var(--bg), var(--bg2));
-  background-repeat:no-repeat;
 }
 
 a{color:inherit;text-decoration:none}
@@ -39,10 +39,9 @@ a{color:inherit;text-decoration:none}
 .section{padding:74px 0}
 .small{font-size:.98rem;color:var(--muted)}
 h1,h2,h3{line-height:1.15;margin:0 0 14px}
-h1{font-size:clamp(2.15rem, 4.2vw, 3.3rem); letter-spacing:.2px}
-h2{font-size:clamp(1.45rem, 2.6vw, 2.1rem)}
+h1{font-size:clamp(2.15rem,4.2vw,3.3rem)}
+h2{font-size:clamp(1.45rem,2.6vw,2.1rem)}
 h3{font-size:1.12rem}
-p{margin:0 0 12px}
 
 /* =========================
    NAV
@@ -50,99 +49,70 @@ p{margin:0 0 12px}
 .nav{
   position:sticky;top:0;z-index:50;
   background:rgba(7,6,11,.62);
-  backdrop-filter: blur(12px);
+  backdrop-filter:blur(12px);
   border-bottom:1px solid var(--line);
 }
 .nav-inner{
   display:flex;align-items:center;justify-content:space-between;
   gap:12px;padding:14px 0;
 }
-
-.brand{
-  display:flex;align-items:center;gap:12px;
-  font-weight:900;letter-spacing:.45px;
-}
+.brand{display:flex;align-items:center;gap:12px;font-weight:900}
+.brand-logo{width:34px;height:34px;filter:drop-shadow(0 10px 18px rgba(0,0,0,.55))}
 .brand .word{
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  font-size:.96rem;
-  letter-spacing:.8px;
-  white-space:nowrap;
+  font-family:ui-sans-serif,system-ui;
+  font-size:.96rem;letter-spacing:.8px;white-space:nowrap;
 }
-.brand .brand-logo{
-  width:34px;height:34px;
-  display:block;
-  flex:0 0 auto;
-  filter: drop-shadow(0 10px 18px rgba(0,0,0,.55));
-}
-
-.menu{
-  display:flex;flex-wrap:wrap;gap:10px;
-  align-items:center;justify-content:flex-end;
-}
+.menu{display:flex;flex-wrap:wrap;gap:10px}
 .menu a{
   padding:9px 11px;border-radius:999px;
-  color:rgba(242,238,252,.82);
   border:1px solid transparent;
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  font-size:.95rem;
+  font-family:ui-sans-serif,system-ui;
 }
-.menu a:hover{border-color:var(--line); background:rgba(16,12,26,.44)}
-.menu a.active{border-color:rgba(216,179,90,.38); background:rgba(216,179,90,.08)}
+.menu a:hover{border-color:var(--line);background:rgba(16,12,26,.44)}
 
 /* =========================
    BUTTONS / CARDS
 ========================= */
 .btn{
-  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  display:inline-flex;align-items:center;justify-content:center;
   padding:12px 14px;border-radius:14px;
   border:1px solid rgba(216,179,90,.36);
   background:rgba(16,12,26,.62);
-  color:var(--text);
-  box-shadow:0 10px 26px rgba(0,0,0,.35);
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-family:ui-sans-serif,system-ui;
 }
-.btn:hover{transform:translateY(-1px)}
 .btn.primary{
-  border-color:transparent;
-  background:linear-gradient(135deg, rgba(216,179,90,.95), rgba(169,139,255,.86));
-  color:#08060f;
-  font-weight:900;
+  background:linear-gradient(135deg,#d8b35a,#a98bff);
+  color:#08060f;font-weight:900;border:0;
 }
-.btn.ghost{border-color:var(--line); background:rgba(16,12,26,.34)}
-.btn.row{width:100%}
-
 .card{
   background:var(--card);
   border:1px solid var(--line);
   border-radius:var(--radius);
-  box-shadow:var(--shadow);
   padding:20px;
+  box-shadow:var(--shadow);
 }
 .card.soft{
-  background:linear-gradient(180deg, rgba(16,12,26,.78), rgba(10,7,17,.58));
+  background:linear-gradient(180deg,rgba(16,12,26,.78),rgba(10,7,17,.58));
 }
-.hr{height:1px;background:var(--line);margin:16px 0}
 
 /* =========================
    GRIDS
 ========================= */
 .grid-2{display:grid;grid-template-columns:1.05fr .95fr;gap:16px}
 .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-@media (max-width: 960px){
+@media(max-width:960px){
   .grid-2,.grid-3{grid-template-columns:1fr}
 }
 
 /* =========================
-   HERO (len na domovskej)
+   HERO – DOMOV
 ========================= */
 .hero{
-  --hero-bg: url('exorcisti.png');
-  padding:82px 0 56px;
+  --hero-bg:url("exorcisti.png");
+  min-height:100vh;
   position:relative;
   overflow:hidden;
-  min-height:100vh;
 }
-
 .hero::before{
   content:"";
   position:absolute;
@@ -150,235 +120,71 @@ p{margin:0 0 12px}
   background:
     radial-gradient(900px 520px at 25% 10%, rgba(216,179,90,.18), transparent 60%),
     radial-gradient(900px 520px at 70% 20%, rgba(169,139,255,.20), transparent 60%),
-    var(--hero-bg, none);
-  background-size: auto, auto, cover;
-  background-repeat:no-repeat;
-  background-position: 0 0, 0 0, 50% 45%;
-  opacity:.52;
-  filter: contrast(145%) brightness(88%) saturate(115%);
-  box-shadow: inset 0 0 140px rgba(255,220,150,.10);
+    var(--hero-bg);
+  background-size:auto,auto,cover;
+  background-position:0 0,0 0,50% 45%;
+  opacity:.55;
 }
-
 .hero::after{
   content:"";
-  position:absolute;
-  inset:0;
-  background: linear-gradient(
-    90deg,
-    rgba(7,6,11,.82) 0%,
-    rgba(7,6,11,.50) 46%,
-    rgba(7,6,11,.82) 100%
-  );
+  position:absolute;inset:0;
+  background:linear-gradient(90deg,#07060b 0%,rgba(7,6,11,.5) 50%,#07060b 100%);
 }
-
-.hero > .container{position:relative;z-index:1}
-
-.sigils{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
-.sigil{
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  font-size:.88rem;
-  padding:7px 10px;border-radius:999px;
-  border:1px solid rgba(216,179,90,.28);
-  background:rgba(216,179,90,.06);
-  color:rgba(242,238,252,.84);
-  display:inline-flex;align-items:center;gap:8px;
-}
-.sigil svg{width:16px;height:16px;opacity:.9}
-
-.kpi{
-  padding:14px;border-radius:16px;
-  border:1px solid var(--line);
-  background:rgba(16,12,26,.45)
-}
-.kpi strong{
-  display:block;margin-bottom:6px;
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  letter-spacing:.2px
-}
-
-.list{display:grid;gap:10px;margin:0;padding:0;list-style:none}
-.list li{
-  padding:12px 12px;border-radius:14px;
-  border:1px solid rgba(220,210,255,.14);
-  background:rgba(10,7,17,.45)
-}
-
-.notice{
-  border-left:4px solid rgba(216,179,90,.62);
-  padding:12px 12px;
-  background:rgba(216,179,90,.09);
-  border-radius:14px;
-  color:rgba(242,238,252,.78);
-}
-.quote{
-  border-left:4px solid rgba(169,139,255,.56);
-  padding:14px 14px;
-  background:rgba(169,139,255,.08);
-  border-radius:14px;
-  color:rgba(242,238,252,.82);
-}
+.hero>.container{position:relative;z-index:1}
 
 /* =========================
-   FORMS
+   BACKGROUNDS PER PAGE
 ========================= */
-.form{display:grid;gap:12px}
-label{
-  font-size:.95rem;color:var(--muted);
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-}
-input, textarea, select{
-  width:100%;
-  padding:12px 12px;border-radius:14px;
-  border:1px solid rgba(220,210,255,.18);
-  background:rgba(7,6,11,.55);
-  color:var(--text);
-  outline:none;
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-}
-textarea{min-height:150px;resize:vertical}
-
-/* =========================
-   FOOTER / FLOAT
-========================= */
-.footer{
-  padding:28px 0;
-  border-top:1px solid var(--line);
-  color:rgba(242,238,252,.65);
-  background:rgba(7,6,11,.60);
-}
-
-.wa-float{
-  position:fixed;right:18px;bottom:18px;z-index:60;
-  border-radius:999px;
-  padding:12px 14px;
-  background:linear-gradient(135deg, rgba(216,179,90,.94), rgba(169,139,255,.86));
-  color:#08060f;
-  font-weight:950;
-  box-shadow:var(--shadow);
-  border:0;
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-}
-.wa-float:hover{transform:translateY(-1px)}
-
-.pillrow{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
-
-/* ==============================
-   BACKGROUNDS PER PAGE (subpages)
-   (pozadie súbory sú v root-e repo)
-============================== */
 .page-home,
 .page-ocista,
 .page-postup,
-.page-reiki,
-.page-kontakt{
-  background-position: center top;
-  background-repeat: no-repeat;
-  background-size: cover;       /* default pre všetky */
+.page-reiki{
+  background-repeat:no-repeat;
+  background-position:center top;
+  background-size:cover;
 }
 
-/* IBA KONTAKT – zmenšený obrázok */
+/* 👉 KONTAKT – ČIERNE OKRAJE */
 .page-kontakt{
-  background-size: 75% auto;
+  background-color:#000;
+  background-image:url("bg-kontakt.png");
+  background-repeat:no-repeat;
+  background-size:75% auto;
+  background-position:center top;
 }
 
-/* KONTAKT na mobile */
-@media (max-width: 768px){
+/* mobile kontakt */
+@media(max-width:768px){
   .page-kontakt{
-    background-size: 95% auto;
-    background-position: center top;
+    background-size:95% auto;
   }
 }
 
-/* overlay pre čitateľnosť textu na pozadí */
+/* pozadia */
+.page-home{background-image:url("bg-home.png")}
+.page-ocista{background-image:url("bg-ocista.png")}
+.page-postup{background-image:url("bg-postup.png")}
+.page-reiki{background-image:url("bg-reiki.png")}
+
+/* =========================
+   OVERLAY
+========================= */
 body::before{
   content:"";
   position:fixed;
   inset:0;
+  background:radial-gradient(ellipse at top,rgba(0,0,0,.35),rgba(0,0,0,.78));
   pointer-events:none;
-  background: radial-gradient(ellipse at top, rgba(0,0,0,.35), rgba(0,0,0,.78));
   z-index:-1;
 }
-
-/* pozadia */
-.page-home   { background-image:url("bg-home.png"); }
-.page-ocista { background-image:url("bg-ocista.png"); }
-.page-postup { background-image:url("bg-postup.png"); }
-.page-reiki  { background-image:url("bg-reiki.png"); }
-.page-kontakt{ background-image:url("bg-kontakt.png"); }
-
-/* Voliteľné: ak chceš na DOMOVE iba hero obrázok a NIE bg-home.png, odkomentuj:
-.page-home{ background-image:none; }
-*/
+@media(max-width:768px){
+  body::before{position:absolute}
+}
 
 /* =========================
-   MOBILE HERO + GENERAL MOBILE
+   MOBILE
 ========================= */
-@media (max-width: 768px){
-  .hero{
-    --hero-bg: url('exorcisti-mobile.png');
-    min-height: 90vh;
-    padding: 24px 0;
-  }
-
-  .hero::before{
-    background-position: 50% 20%;
-    opacity: .65;
-    filter: contrast(140%) brightness(92%);
-  }
-
-  /* fixed overlay môže na mobile škubať */
-  body::before{ position:absolute; }
-
-  h1{ font-size: clamp(26px, 7vw, 34px); line-height:1.15; }
-  h2{ font-size: clamp(20px, 5.5vw, 26px); }
-}
-
-/* ---- TABLET a menšie (<= 900px) ---- */
-@media (max-width: 900px){
-  .nav-inner{ flex-wrap: wrap; gap: 10px; }
-  .brand{ gap: 10px; min-width: 240px; }
-  .menu{ flex-wrap: wrap; justify-content: flex-start; gap: 10px; }
-  .grid-2{ grid-template-columns: 1fr !important; }
-  .grid-3{ grid-template-columns: 1fr 1fr !important; }
-}
-
-/* ---- MOBILE (<= 600px) ---- */
-@media (max-width: 600px){
-  .container{ padding-left: 16px; padding-right: 16px; }
-
-  .nav-inner{ align-items: flex-start; }
-  .menu{ width: 100%; }
-  .menu a{ padding: 10px 10px; }
-
-  .menu .btn{
-    width: 100%;
-    text-align: center;
-  }
-
-  .pillrow{
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 10px;
-  }
-  .pillrow .btn{
-    width: 100%;
-    justify-content: center;
-  }
-
-  .sigils{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-  }
-  .sigil{ display: flex; align-items: center; gap: 8px; }
-
-  .card{ padding: 16px; }
-  .grid-3{ grid-template-columns: 1fr !important; }
-
-  .wa-float{ right: 14px; bottom: 14px; }
-}
-
-/* ---- EXTRA SMALL (<= 380px) ---- */
-@media (max-width: 380px){
-  .sigils{ grid-template-columns: 1fr; }
+@media(max-width:600px){
+  .container{padding:0 16px}
+  .grid-2,.grid-3{grid-template-columns:1fr}
 }

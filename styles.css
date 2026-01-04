@@ -271,11 +271,11 @@ textarea{min-height:150px;resize:vertical}
 .page-postup,
 .page-reiki,
 .page-kontakt{
-  background-repeat:no-repeat;
-  background-position:center top;
-  background-size:cover;
-  background-color:#070707;
+  background-size: 75% auto;   
+  background-position: center top;
+  background-repeat: no-repeat;
 }
+
 
 /* overlay pre čitateľnosť textu na pozadí */
 body::before{
@@ -365,3 +365,4 @@ body::before{
 @media (max-width: 380px){
   .sigils{ grid-template-columns: 1fr; }
 }
+

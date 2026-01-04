@@ -271,16 +271,23 @@ textarea{min-height:150px;resize:vertical}
 .page-postup,
 .page-reiki,
 .page-kontakt{
-  background-size: 75% auto;   
   background-position: center top;
   background-repeat: no-repeat;
+  background-size: cover;       /* default pre všetky */
+}
+
+/* IBA KONTAKT – zmenšený obrázok */
+.page-kontakt{
+  background-size: 75% auto;
+}
+
+/* KONTAKT na mobile */
 @media (max-width: 768px){
   .page-kontakt{
     background-size: 95% auto;
     background-position: center top;
- } 
+  }
 }
-
 
 /* overlay pre čitateľnosť textu na pozadí */
 body::before{
@@ -292,11 +299,16 @@ body::before{
   z-index:-1;
 }
 
+/* pozadia */
 .page-home   { background-image:url("bg-home.png"); }
 .page-ocista { background-image:url("bg-ocista.png"); }
 .page-postup { background-image:url("bg-postup.png"); }
 .page-reiki  { background-image:url("bg-reiki.png"); }
 .page-kontakt{ background-image:url("bg-kontakt.png"); }
+
+/* Voliteľné: ak chceš na DOMOVE iba hero obrázok a NIE bg-home.png, odkomentuj:
+.page-home{ background-image:none; }
+*/
 
 /* =========================
    MOBILE HERO + GENERAL MOBILE
@@ -370,5 +382,3 @@ body::before{
 @media (max-width: 380px){
   .sigils{ grid-template-columns: 1fr; }
 }
-
-

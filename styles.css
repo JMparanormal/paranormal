@@ -274,6 +274,11 @@ textarea{min-height:150px;resize:vertical}
   background-size: 75% auto;   
   background-position: center top;
   background-repeat: no-repeat;
+@media (max-width: 768px){
+  .page-kontakt{
+    background-size: 95% auto;
+    background-position: center top;
+ } 
 }
 
 
@@ -365,4 +370,5 @@ body::before{
 @media (max-width: 380px){
   .sigils{ grid-template-columns: 1fr; }
 }
+
 

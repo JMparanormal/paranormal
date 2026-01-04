@@ -404,3 +404,38 @@ img, svg{
     grid-template-columns: 1fr;
   }
 }
+
+
+/* ==============================
+   PAGE BACKGROUNDS (ALL PAGES)
+============================== */
+
+body{
+  background-color:#070707;
+  background-repeat:no-repeat;
+  background-position:center top;
+  background-size:cover;
+}
+
+/* overlay vrstva pre čitateľnosť */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  background: radial-gradient(ellipse at top, rgba(0,0,0,.35), rgba(0,0,0,.78));
+  z-index:-1;
+}
+
+/* jednotlivé stránky */
+.page-home   { background-image:url("images/bg-home.jpg"); }
+.page-ocista { background-image:url("images/bg-ocista.jpg"); }
+.page-postup { background-image:url("images/bg-postup.jpg"); }
+.page-reiki  { background-image:url("images/bg-reiki.jpg"); }
+.page-kontakt{ background-image:url("images/bg-kontakt.jpg"); }
+
+/* mobile: fixed pozadie často škube – radšej scroll */
+@media (max-width: 768px){
+  body::before{ position:absolute; }
+}
+

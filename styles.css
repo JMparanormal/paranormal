@@ -1,35 +1,30 @@
-/* styles.css — OCCULT verzia (tvrdšia, temnejšia, viac rituálna)
-   Texty/HTML nemeníme. Len vizuál.
+/* styles.css v=20 — TOTÁLNY REDESIGN (okult dossier + sigil kruhy + nový layout)
+   Texty nechávame 1:1, mení sa len vizuál a rozloženie.
 */
 
 :root{
   --bg:#04020a;
   --bg2:#070314;
-  --card:rgba(8,5,18,.78);
-  --card2:rgba(6,4,14,.64);
+  --paper:#0a0618;
+  --ink:#f4f0ff;
+  --muted:rgba(244,240,255,.72);
 
-  --text:#f4f0ff;
-  --muted:rgba(244,240,255,.70);
-  --line:rgba(210,185,255,.14);
-
-  /* okult akcenty */
   --gold:#d7b24a;
   --violet:#a98bff;
   --blood:#ff2e55;
-  --ember:#ff7a1a;
 
-  --shadow: 0 22px 60px rgba(0,0,0,.68);
-  --radius: 18px;
-  --max: 1120px;
+  --line:rgba(220,210,255,.12);
+  --line2:rgba(215,178,74,.14);
 
-  /* jemný “noise” (len CSS) */
-  --noise-opacity: .10;
+  --radius:18px;
+  --shadow: 0 22px 70px rgba(0,0,0,.70);
+  --max:1120px;
 }
 
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
 body{
-  color:var(--text);
+  color:var(--ink);
   font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
   line-height:1.65;
   background:
@@ -40,15 +35,35 @@ body{
   overflow-x:hidden;
 }
 
-/* Okult “papier/film” šum + jemný vignette */
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  z-index:0;
+a{color:inherit;text-decoration:none}
+.container{max-width:var(--max);margin:0 auto;padding:0 18px}
+.section{padding:80px 0}
+.small{font-size:.98rem;color:var(--muted)}
+h1,h2,h3{line-height:1.1;margin:0 0 14px}
+h1{font-size:clamp(2.3rem, 4.8vw, 3.6rem); letter-spacing:.3px}
+h2{font-size:clamp(1.55rem, 2.9vw, 2.3rem)}
+h3{font-size:1.12rem}
+p{margin:0 0 12px}
+
+/* Background ornaments */
+.bg-orbit{
+  position:fixed; inset:-200px;
+  pointer-events:none; z-index:0;
   background:
-    radial-gradient(1200px 900px at 50% 30%, rgba(0,0,0,0), rgba(0,0,0,.52)),
+    radial-gradient(circle at 50% 40%, rgba(215,178,74,.08), transparent 55%),
+    repeating-radial-gradient(circle at 50% 42%,
+      rgba(215,178,74,.07) 0px,
+      rgba(215,178,74,.07) 1px,
+      rgba(0,0,0,0) 10px,
+      rgba(0,0,0,0) 18px
+    );
+  opacity:.35;
+  filter: blur(0.2px);
+}
+.bg-grain{
+  position:fixed; inset:0;
+  pointer-events:none; z-index:0;
+  background:
     repeating-linear-gradient(
       0deg,
       rgba(255,255,255,.03) 0px,
@@ -56,49 +71,31 @@ body::before{
       rgba(0,0,0,0) 3px,
       rgba(0,0,0,0) 6px
     );
-  opacity: var(--noise-opacity);
+  opacity:.10;
   mix-blend-mode: overlay;
 }
 
-a{color:inherit;text-decoration:none}
-.container{max-width:var(--max);margin:0 auto;padding:0 18px}
-.section{padding:74px 0}
-.small{font-size:.98rem;color:var(--muted)}
-h1,h2,h3{line-height:1.12;margin:0 0 14px}
-h1{
-  font-size:clamp(2.25rem, 4.6vw, 3.45rem);
-  letter-spacing:.25px;
-  text-shadow: 0 10px 40px rgba(0,0,0,.65);
-}
-h2{
-  font-size:clamp(1.55rem, 2.9vw, 2.2rem);
-  letter-spacing:.2px;
-}
-h3{font-size:1.12rem}
-p{margin:0 0 12px}
-
 /* NAV */
 .nav{
-  position:sticky;top:0;z-index:50;
-  background:rgba(4,2,10,.72);
-  backdrop-filter: blur(12px);
-  border-bottom:1px solid rgba(215,178,74,.14);
-  box-shadow: 0 10px 40px rgba(0,0,0,.45);
+  position:sticky; top:0; z-index:60;
+  background:rgba(4,2,10,.74);
+  backdrop-filter: blur(14px);
+  border-bottom:1px solid rgba(215,178,74,.12);
+  box-shadow: 0 10px 40px rgba(0,0,0,.40);
 }
 .nav-inner{
-  display:flex;align-items:center;justify-content:space-between;
-  gap:12px;padding:14px 0
+  display:flex; align-items:center; justify-content:space-between;
+  gap:12px; padding:14px 0;
 }
 
-/* Brand viac “sigil” feel */
 .brand{
-  display:flex;align-items:center;gap:12px;
-  font-weight:900;letter-spacing:.55px;
+  display:flex; align-items:center; gap:12px;
+  font-weight:900; letter-spacing:.55px;
 }
 .brand .word{
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   font-size:.96rem;
-  letter-spacing:1.4px;
+  letter-spacing:1.6px;
   text-transform:uppercase;
 }
 .brand svg{
@@ -108,59 +105,260 @@ p{margin:0 0 12px}
 
 /* Menu */
 .menu{
-  display:flex;flex-wrap:wrap;gap:10px;
-  align-items:center;justify-content:flex-end
+  display:flex; flex-wrap:wrap; gap:10px;
+  align-items:center; justify-content:flex-end;
 }
 .menu a{
-  padding:9px 12px;border-radius:999px;
-  color:rgba(244,240,255,.84);
+  padding:9px 12px; border-radius:999px;
+  color:rgba(244,240,255,.86);
   border:1px solid transparent;
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   font-size:.95rem;
-  position:relative;
 }
 .menu a:hover{
-  border-color:rgba(215,178,74,.22);
-  background:rgba(8,5,18,.52);
+  border-color:rgba(215,178,74,.20);
+  background:rgba(10,6,22,.52);
 }
 .menu a.active{
   border-color:rgba(255,46,85,.38);
   background:rgba(255,46,85,.10);
-  box-shadow: 0 0 0 1px rgba(255,46,85,.12) inset;
 }
 
-/* Buttons – viac “ritual metal” */
+.menu-toggle{
+  display:none;
+  border:1px solid rgba(215,178,74,.18);
+  background:rgba(10,6,22,.55);
+  color:rgba(244,240,255,.92);
+  padding:10px 12px;
+  border-radius:12px;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+@media (max-width: 860px){
+  .menu{display:none}
+  .menu.open{
+    display:flex;
+    position:absolute;
+    right:18px;
+    top:62px;
+    flex-direction:column;
+    align-items:stretch;
+    gap:8px;
+    padding:12px;
+    border-radius:16px;
+    background:rgba(4,2,10,.92);
+    border:1px solid rgba(215,178,74,.14);
+    box-shadow: var(--shadow);
+  }
+  .menu-toggle{display:inline-flex}
+}
+
+/* Buttons */
 .btn{
-  display:inline-flex;align-items:center;justify-content:center;gap:10px;
-  padding:12px 14px;border-radius:14px;
-  border:1px solid rgba(215,178,74,.26);
-  background:linear-gradient(180deg, rgba(10,6,22,.82), rgba(7,4,16,.62));
-  color:var(--text);
+  display:inline-flex; align-items:center; justify-content:center; gap:10px;
+  padding:12px 14px; border-radius:14px;
+  border:1px solid rgba(215,178,74,.24);
+  background:linear-gradient(180deg, rgba(12,8,26,.86), rgba(7,4,16,.62));
+  color:var(--ink);
   box-shadow: 0 14px 34px rgba(0,0,0,.46);
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  transform: translateZ(0);
 }
 .btn:hover{transform:translateY(-1px)}
-.btn.primary{
+.btn-row{width:100%}
+.btn-primary{
   border-color: rgba(255,46,85,.30);
-  background:
-    linear-gradient(135deg, rgba(255,46,85,.88), rgba(169,139,255,.68));
-  color:#0b0614;
+  background: linear-gradient(135deg, rgba(255,46,85,.90), rgba(169,139,255,.70));
+  color:#090414;
   font-weight:950;
-  box-shadow: 0 18px 50px rgba(0,0,0,.55), 0 0 0 1px rgba(255,46,85,.16) inset;
+  box-shadow: 0 22px 60px rgba(0,0,0,.58);
 }
-.btn.ghost{
-  border-color:rgba(210,185,255,.14);
-  background:rgba(8,5,18,.36);
+.btn-ghost{
+  border-color:rgba(220,210,255,.12);
+  background:rgba(10,6,22,.36);
 }
-.btn.row{width:100%}
+.btn-nav{
+  border-color:rgba(215,178,74,.28);
+  background:rgba(10,6,22,.52);
+}
 
-/* Cards – tvrdšie okraje + jemný “sigil glow” */
+/* HERO — komplet nový layout */
+.hero{
+  position:relative;
+  padding:68px 0 0;
+  z-index:1;
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:-40px;
+  background:
+    radial-gradient(900px 520px at 22% 10%, rgba(255,46,85,.20), transparent 60%),
+    radial-gradient(900px 520px at 76% 20%, rgba(169,139,255,.20), transparent 60%),
+    url("exorcisti.png");
+  background-size:auto, auto, cover;
+  background-repeat:no-repeat;
+  background-position:0 0, 0 0, 50% 45%;
+  opacity:.55;
+  filter: contrast(155%) brightness(78%) saturate(122%);
+}
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(1100px 700px at 50% 35%, rgba(0,0,0,0), rgba(0,0,0,.72)),
+    linear-gradient(90deg, rgba(4,2,10,.92), rgba(4,2,10,.58) 48%, rgba(4,2,10,.90));
+}
+.hero-grid{
+  position:relative;
+  z-index:2;
+  display:grid;
+  grid-template-columns: 1.12fr .88fr;
+  gap:18px;
+  align-items:start;
+  padding:24px 0 64px;
+}
+@media (max-width: 980px){
+  .hero-grid{grid-template-columns:1fr}
+}
+@media (max-width: 768px){
+  .hero::before{
+    background: url("exorcisti-mobile.png");
+    background-size: cover;
+    background-position: 50% 18%;
+    opacity:.62;
+    filter: contrast(150%) brightness(82%) saturate(118%);
+  }
+}
+
+/* Dossier block */
+.dossier{
+  background:
+    linear-gradient(180deg, rgba(10,6,22,.86), rgba(6,4,14,.66));
+  border:1px solid rgba(215,178,74,.14);
+  border-radius: calc(var(--radius) + 8px);
+  box-shadow: var(--shadow);
+  padding:22px;
+  position:relative;
+  overflow:hidden;
+}
+.dossier::before{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  background:
+    repeating-linear-gradient(135deg,
+      rgba(215,178,74,.08) 0px,
+      rgba(215,178,74,.08) 1px,
+      rgba(0,0,0,0) 8px,
+      rgba(0,0,0,0) 16px
+    );
+  opacity:.25;
+  pointer-events:none;
+}
+.dossier > *{position:relative}
+
+.dossier-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:10px;
+}
+.stamp{
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-weight:900;
+  letter-spacing:2.2px;
+  font-size:.78rem;
+  padding:7px 10px;
+  border-radius:999px;
+  border:1px solid rgba(255,46,85,.22);
+  background:rgba(255,46,85,.08);
+  text-transform:uppercase;
+}
+.meta{
+  display:flex; align-items:center; gap:8px;
+  color:rgba(244,240,255,.72);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-size:.9rem;
+}
+.meta-dot{
+  width:9px;height:9px;border-radius:50%;
+  background: radial-gradient(circle at 30% 30%, rgba(255,46,85,.95), rgba(169,139,255,.75));
+  box-shadow: 0 0 0 3px rgba(255,46,85,.10);
+}
+
+.cta-row{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
+
+/* Sigils chips */
+.sigils{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
+.sigil{
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-size:.88rem;
+  padding:7px 10px;
+  border-radius:999px;
+  border:1px solid rgba(255,46,85,.20);
+  background:rgba(255,46,85,.06);
+  color:rgba(244,240,255,.88);
+  display:inline-flex; align-items:center; gap:8px;
+}
+.sigil svg{width:16px;height:16px;opacity:.92}
+
+/* Quote & notice */
+.quote{
+  margin-top:16px;
+  border-left:4px solid rgba(169,139,255,.64);
+  padding:14px 14px;
+  background:rgba(169,139,255,.08);
+  border-radius:14px;
+  color:rgba(244,240,255,.86);
+}
+.notice{
+  border-left:4px solid rgba(215,178,74,.72);
+  padding:12px 12px;
+  background:rgba(215,178,74,.09);
+  border-radius:14px;
+  color:rgba(244,240,255,.78);
+}
+
+/* Ritual panel (right) */
+.ritual-panel{
+  position:relative;
+  display:grid;
+  gap:14px;
+}
+.sigil-board{
+  position:relative;
+  border-radius: calc(var(--radius) + 8px);
+  border:1px solid rgba(220,210,255,.10);
+  background:rgba(10,6,22,.50);
+  box-shadow: 0 18px 60px rgba(0,0,0,.40);
+  height:220px;
+  overflow:hidden;
+}
+.sigil-ring{
+  position:absolute;
+  inset:-30px;
+  border-radius:50%;
+  border:1px solid rgba(215,178,74,.18);
+  box-shadow: inset 0 0 60px rgba(255,46,85,.10);
+  transform: rotate(10deg);
+}
+.sigil-ring.ring2{ inset:-60px; border-color: rgba(169,139,255,.16); transform: rotate(-12deg); }
+.sigil-ring.ring3{ inset:-95px; border-color: rgba(255,46,85,.14); transform: rotate(24deg); }
+.sigil-center{
+  position:absolute;
+  inset:44px;
+  border-radius:50%;
+  border:1px dashed rgba(215,178,74,.22);
+  background: radial-gradient(circle at 50% 50%, rgba(255,46,85,.10), rgba(0,0,0,0));
+}
+
+/* Cards */
 .card{
-  background:var(--card);
+  background: linear-gradient(180deg, rgba(10,6,22,.84), rgba(6,4,14,.66));
   border:1px solid rgba(215,178,74,.12);
-  border-radius:var(--radius);
-  box-shadow:var(--shadow);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
   padding:20px;
   position:relative;
   overflow:hidden;
@@ -169,198 +367,99 @@ p{margin:0 0 12px}
   content:"";
   position:absolute;
   inset:-2px;
-  pointer-events:none;
   background:
     radial-gradient(700px 260px at 15% 0%, rgba(255,46,85,.12), transparent 60%),
     radial-gradient(520px 260px at 85% 10%, rgba(169,139,255,.12), transparent 60%),
     radial-gradient(520px 260px at 45% 120%, rgba(215,178,74,.10), transparent 60%);
-  opacity:.8;
+  opacity:.75;
+  pointer-events:none;
 }
 .card > *{position:relative}
-.card.soft{
+.card-strong{
+  border-color: rgba(255,46,85,.16);
+}
+.card-soft{
+  border-color: rgba(220,210,255,.10);
+}
+
+/* Lists */
+.list{display:grid; gap:10px; margin:0; padding:0; list-style:none}
+.list li{
+  padding:12px 12px;
+  border-radius:14px;
+  border:1px solid rgba(220,210,255,.10);
+  background:rgba(6,4,14,.55);
+}
+
+.hr{height:1px;background:rgba(220,210,255,.14);margin:16px 0}
+
+/* Hero bottom cut */
+.hero-cut{
+  height:70px;
+  background: linear-gradient(180deg, rgba(0,0,0,0), rgba(4,2,10,.90));
+  clip-path: polygon(0 0, 100% 0, 100% 45%, 0 100%);
+}
+
+/* Section head */
+.section-head{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:14px;
+}
+.divider-ritual{
+  height:10px;
+  flex:1;
+  max-width: 380px;
+  border-bottom:1px solid rgba(215,178,74,.18);
   background:
-    linear-gradient(180deg, rgba(10,6,22,.82), rgba(6,4,14,.62));
-  border-color: rgba(210,185,255,.12);
+    radial-gradient(circle at 15% 50%, rgba(255,46,85,.35), rgba(0,0,0,0) 55%),
+    radial-gradient(circle at 85% 50%, rgba(169,139,255,.35), rgba(0,0,0,0) 55%);
+  opacity:.45;
 }
 
-.hr{height:1px;background:rgba(210,185,255,.14);margin:16px 0}
-
-.grid-2{display:grid;grid-template-columns:1.05fr .95fr;gap:16px}
-.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+/* Pillars — nový layout namiesto grid-3 */
+.pillars{
+  margin-top:18px;
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:12px;
+}
 @media (max-width: 960px){
-  .grid-2,.grid-3{grid-template-columns:1fr}
+  .pillars{grid-template-columns:1fr}
 }
-
-/* HERO – viac okult: sigil overlay + tvrdší kontrast + “candle flicker” */
-.hero{
-  --hero-bg: url('exorcisti.png');
-  padding:82px 0 56px;
+.pillar{
+  padding:18px;
+  border-radius: calc(var(--radius) + 6px);
+  border:1px solid rgba(220,210,255,.10);
+  background:
+    linear-gradient(180deg, rgba(10,6,22,.78), rgba(6,4,14,.62));
+  box-shadow: 0 16px 50px rgba(0,0,0,.40);
   position:relative;
   overflow:hidden;
-  min-height:100vh;
-  z-index:1;
 }
-
-/* pozadie s 3 vrstvami + sigil overlay */
-.hero::before{
+.pillar::before{
   content:"";
   position:absolute;
-  inset:-40px;
+  inset:-2px;
   background:
-    radial-gradient(900px 520px at 22% 10%, rgba(255,46,85,.18), transparent 60%),
-    radial-gradient(900px 520px at 76% 20%, rgba(169,139,255,.20), transparent 60%),
-    var(--hero-bg, none);
-  background-size: auto, auto, cover;
-  background-repeat:no-repeat;
-  background-position: 0 0, 0 0, 50% 44%;
-  opacity:.58;
-  filter: contrast(155%) brightness(78%) saturate(120%);
-  transform: scale(1.03);
-}
-
-/* Sigil pattern (CSS-only) – jemný, ale okultný */
-.hero::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    radial-gradient(1200px 700px at 50% 35%, rgba(0,0,0,0), rgba(0,0,0,.65)),
-    repeating-radial-gradient(
-      circle at 50% 45%,
-      rgba(215,178,74,.07) 0px,
-      rgba(215,178,74,.07) 2px,
+    repeating-linear-gradient(45deg,
+      rgba(255,46,85,.07) 0px,
+      rgba(255,46,85,.07) 1px,
       rgba(0,0,0,0) 10px,
       rgba(0,0,0,0) 18px
-    ),
-    linear-gradient(
-      90deg,
-      rgba(4,2,10,.88) 0%,
-      rgba(4,2,10,.58) 46%,
-      rgba(4,2,10,.90) 100%
     );
-  mix-blend-mode: screen;
-  opacity:.55;
+  opacity:.22;
+  pointer-events:none;
 }
-
-/* obsah hero nad vrstvami */
-.hero > .container{position:relative;z-index:2}
-
-/* jemný flicker – iba ak user dovolí animácie */
-@media (prefers-reduced-motion: no-preference){
-  .hero::before{
-    animation: candleFlicker 7.5s infinite ease-in-out;
-  }
-  @keyframes candleFlicker{
-    0%,100%{ filter: contrast(155%) brightness(78%) saturate(120%); opacity:.56; }
-    40%{ filter: contrast(160%) brightness(82%) saturate(122%); opacity:.60; }
-    60%{ filter: contrast(150%) brightness(76%) saturate(118%); opacity:.54; }
-  }
-}
-
-/* Sigils chips – tvrdšie */
-.sigils{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
-.sigil{
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  font-size:.88rem;
-  padding:7px 10px;border-radius:999px;
-  border:1px solid rgba(255,46,85,.22);
-  background:rgba(255,46,85,.07);
-  color:rgba(244,240,255,.86);
-  display:inline-flex;align-items:center;gap:8px;
-  box-shadow: 0 10px 26px rgba(0,0,0,.28);
-}
-.sigil svg{width:16px;height:16px;opacity:.92}
-
-/* KPI */
-.kpi{
-  padding:14px;border-radius:16px;
-  border:1px solid rgba(210,185,255,.14);
-  background:rgba(8,5,18,.44);
-}
-.kpi strong{
-  display:block;margin-bottom:6px;
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  letter-spacing:.25px
-}
-
-/* List */
-.list{display:grid;gap:10px;margin:0;padding:0;list-style:none}
-.list li{
-  padding:12px 12px;border-radius:14px;
-  border:1px solid rgba(210,185,255,.12);
-  background:rgba(6,4,14,.55);
-  box-shadow: 0 14px 34px rgba(0,0,0,.30);
-}
-
-/* Notice / Quote – viac “ritual ink” */
-.notice{
-  border-left:4px solid rgba(215,178,74,.70);
-  padding:12px 12px;
-  background:rgba(215,178,74,.09);
-  border-radius:14px;
-  color:rgba(244,240,255,.78);
-}
-.quote{
-  border-left:4px solid rgba(255,46,85,.64);
-  padding:14px 14px;
-  background:rgba(255,46,85,.08);
-  border-radius:14px;
-  color:rgba(244,240,255,.84);
-}
-
-/* Forms */
-.form{display:grid;gap:12px}
-label{
-  font-size:.95rem;color:var(--muted);
+.pillar > *{position:relative}
+.pillar-top{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:8px;
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 }
-input, textarea, select{
-  width:100%;
-  padding:12px 12px;border-radius:14px;
-  border:1px solid rgba(210,185,255,.18);
-  background:rgba(4,2,10,.62);
-  color:var(--text);
-  outline:none;
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-}
-input:focus, textarea:focus, select:focus{
-  border-color: rgba(255,46,85,.38);
-  box-shadow: 0 0 0 3px rgba(255,46,85,.10);
-}
-textarea{min-height:150px;resize:vertical}
+.pillar-mark{
+  wi
 
-/* Footer */
-.footer{
-  padding:28px 0;
-  border-top:1px solid rgba(215,178,74,.12);
-  color:rgba(244,240,255,.62);
-  background:rgba(4,2,10,.70);
-}
-
-/* WhatsApp floating – viac “blood/violet” */
-.wa-float{
-  position:fixed;right:18px;bottom:18px;z-index:60;
-  border-radius:999px;
-  padding:12px 14px;
-  background:linear-gradient(135deg, rgba(255,46,85,.92), rgba(169,139,255,.78));
-  color:#090414;
-  font-weight:950;
-  box-shadow: 0 22px 60px rgba(0,0,0,.65);
-  border:0;
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-}
-.wa-float:hover{transform:translateY(-1px)}
-.pillrow{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
-
-@media (max-width: 768px){
-  .hero{
-    --hero-bg: url('exorcisti-mobile.png');
-    min-height: 90vh;
-  }
-  .hero::before{
-    background-position: 50% 20%;
-    opacity: .66;
-    filter: contrast(150%) brightness(82%) saturate(118%);
-  }
-  h1{font-size:2rem}
-}

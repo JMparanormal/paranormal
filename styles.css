@@ -177,12 +177,6 @@ body::before{
   pointer-events:none;
   z-index:-1;
 }
-
-/* 🔥 OVERRIDE LEN PRE KONTAKT – úplne čierne boky */
-.page-kontakt::before{
-  background:#000 !important;
-}
-
 @media(max-width:768px){
   body::before{position:absolute}
 }
@@ -194,3 +188,4 @@ body::before{
   .container{padding:0 16px}
   .grid-2,.grid-3{grid-template-columns:1fr}
 }
+

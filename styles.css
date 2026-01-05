@@ -1,4 +1,4 @@
-/* styles.css — opravená verzia (gradienty ponechané, home: čierne pod hero) */
+/* styles.css — finál: gradienty ponechané, pozadia stránok viditeľné, home: čierne pod hero */
 
 :root{
   --bg:#07060b;
@@ -46,6 +46,12 @@ body{
     linear-gradient(180deg, var(--bg), var(--bg2));
 }
 
+/* Obsah vždy nad overlayom */
+main{
+  position:relative;
+  z-index:1;
+}
+
 /* =========================
    NAV
 ========================= */
@@ -74,7 +80,7 @@ body{
 }
 
 /* =========================
-   (Doplnkové: aby sigils neboli rozbité)
+   SIGILS
 ========================= */
 .sigils{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
 .sigil{
@@ -112,36 +118,41 @@ body{
 .wa-float:hover{transform:translateY(-1px)}
 
 /* =========================
-   PER-PAGE BACKGROUNDS
+   PER-PAGE BACKGROUND PHOTOS (NOVÉ)
+   - Fotky idú do body::after, aby gradienty v body ostali
 ========================= */
-
-/* OSTATNÉ stránky – ponechané, ale opravujeme selektory na body.<class> */
-body.page-ocista,
-body.page-postup,
-body.page-reiki{
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:-1; /* fotka úplne vzadu */
+  background:none;
   background-repeat:no-repeat;
   background-position:center top;
   background-size:cover;
+  opacity:.65; /* uprav podľa chuti */
 }
 
-/* Poznámka: toto prepisuje body background ako celok.
-   Ak chceš page obrázky a súčasne zachovať gradienty, spravíme to cez ďalšiu vrstvu (poviem ti). */
-body.page-ocista{background-image:url("bg-ocista.png")}
-body.page-postup{background-image:url("bg-postup.png")}
-body.page-reiki{background-image:url("bg-reiki.png")}
+/* Očista / Postup / Reiki */
+body.page-ocista::after{ background-image:url("bg-ocista.png"); }
+body.page-postup::after{ background-image:url("bg-postup.png"); }
+body.page-reiki::after{ background-image:url("bg-reiki.png"); }
 
-/* KONTAKT: čierne boky (správne zacielené na body.page-kontakt) */
-body.page-kontakt{
-  background:#000 url("bg-kontakt.png") no-repeat center top;
+/* Kontakt: čierne boky + užší obrázok */
+body.page-kontakt::after{
+  background-image:url("bg-kontakt.png");
+  background-repeat:no-repeat;
+  background-position:center top;
   background-size:75% auto;
+  opacity:1;
 }
-
 @media(max-width:768px){
-  body.page-kontakt{ background-size:95% auto; }
+  body.page-kontakt::after{ background-size:95% auto; }
 }
 
 /* =========================
-   OVERLAY (dym) – iba raz, bez duplicít
+   OVERLAY (dym) – iba raz
 ========================= */
 body::before{
   content:"";
@@ -153,25 +164,20 @@ body::before{
     rgba(0,0,0,.78)
   );
   pointer-events:none;
-  z-index:0;
+  z-index:0; /* nad fotkou, pod obsahom */
 }
-
-/* Home: čierne pozadie POD hero */
-body.page-home main{
-  background:#000;
-  position:relative;
-  z-index:1;
-}
-
-/* Ak chceš, aby main bol nad overlay vždy (bez ohľadu na stránku), môžeš použiť toto:
-main{ position:relative; z-index:1; }
-A potom len na home nastaviť background:#000; */
 
 /* na KONTAKT vypneme overlay, aby boky neboli sivé */
 body.page-kontakt::before{ background:none !important; }
 
 @media(max-width:768px){
   body::before{position:absolute}
+  body::after{position:absolute}
+}
+
+/* Domov: čierne pozadie POD hero (v main) */
+body.page-home main{
+  background:#000;
 }
 
 /* =========================
@@ -184,20 +190,4 @@ body.page-kontakt::before{ background:none !important; }
 
 @media(max-width:600px){
   .container{padding:0 16px}
-  .pillrow{display:grid;grid-template-columns:1fr}
-  .pillrow .btn{width:100%}
-}
-
-/* mobile hero */
-@media(max-width:768px){
-  .hero{
-    --hero-bg:url("exorcisti-mobile.png");
-    min-height:90vh;
-    padding:24px 0;
-  }
-  .hero::before{
-    background-position:50% 20%;
-    opacity:.65;
-    filter:contrast(140%) brightness(92%);
-  }
 }

@@ -372,15 +372,11 @@ body::before{
   }
 }
 
-.section-3{
+
+body{
   background:#000;
-  position:relative;
-  z-index:1;
 }
 
-.section-3::before{
-  content:none !important;
-}
 
 
 

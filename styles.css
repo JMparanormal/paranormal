@@ -1,5 +1,3 @@
-/* styles.css — opravená verzia (gradienty ponechané, home: čierne pod hero) */
-
 :root{
   --bg:#07060b;
   --bg2:#0c0814;
@@ -17,27 +15,75 @@
   --max:1120px;
 }
 
-*{box-sizing:border-box}
-html,body{margin:0;padding:0}
-img,svg{max-width:100%;height:auto}
+/* =========================
+   RESET / ZÁKLAD
+========================= */
+*{
+  box-sizing:border-box;
+}
 
-a{color:inherit;text-decoration:none}
-.container{max-width:var(--max);margin:0 auto;padding:0 18px}
-.section{padding:74px 0}
-.small{font-size:.98rem;color:var(--muted)}
-p{margin:0 0 12px}
+html,
+body{
+  margin:0;
+  padding:0;
+}
 
-h1,h2,h3{line-height:1.15;margin:0 0 14px}
-h1{font-size:clamp(2.15rem,4.2vw,3.3rem); letter-spacing:.2px}
-h2{font-size:clamp(1.45rem,2.6vw,2.1rem)}
-h3{font-size:1.12rem}
+img,
+svg{
+  max-width:100%;
+  height:auto;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+.container{
+  max-width:var(--max);
+  margin:0 auto;
+  padding:0 18px;
+}
+
+.section{
+  padding:74px 0;
+}
+
+.small{
+  font-size:.98rem;
+  color:var(--muted);
+}
+
+p{
+  margin:0 0 12px;
+}
+
+h1,
+h2,
+h3{
+  line-height:1.15;
+  margin:0 0 14px;
+}
+
+h1{
+  font-size:clamp(2.15rem,4.2vw,3.3rem);
+  letter-spacing:.2px;
+}
+
+h2{
+  font-size:clamp(1.45rem,2.6vw,2.1rem);
+}
+
+h3{
+  font-size:1.12rem;
+}
 
 /* =========================
    BASE (default background = gradients)
 ========================= */
 body{
   color:var(--text);
-  font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
+  font-family:ui-serif, Georgia, "Times New Roman", Times, serif;
   line-height:1.65;
   background:
     radial-gradient(900px 520px at 20% -10%, rgba(169,139,255,.18), transparent 60%),
@@ -50,98 +96,145 @@ body{
    NAV
 ========================= */
 .nav{
-  position:sticky;top:0;z-index:50;
+  position:sticky;
+  top:0;
+  z-index:50;
   background:rgba(7,6,11,.62);
   backdrop-filter:blur(12px);
   border-bottom:1px solid var(--line);
 }
 
 .nav-inner{
-  display:flex;align-items:center;justify-content:space-between;
-  gap:12px;padding:14px 0;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:14px 0;
 }
 
 .brand{
-  display:flex;align-items:center;gap:12px;
-  font-weight:900;letter-spacing:.45px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-weight:900;
+  letter-spacing:.45px;
 }
 
 .brand-logo{
-  width:34px;height:34px;
+  width:34px;
+  height:34px;
   display:block;
   flex:0 0 auto;
   filter:drop-shadow(0 10px 18px rgba(0,0,0,.55));
 }
 
-/* =========================
-   (Doplnkové: aby sigils neboli rozbité)
-========================= */
-.sigils{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
-.sigil{
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  font-size:.88rem;
-  padding:7px 10px;border-radius:999px;
-  border:1px solid rgba(216,179,90,.28);
-  background:rgba(216,179,90,.06);
-  color:rgba(242,238,252,.84);
-  display:inline-flex;align-items:center;gap:8px;
-}
-.sigil svg{width:16px;height:16px;opacity:.9}
-
-/* =========================
-   FOOTER / FLOAT
-========================= */
-.footer{
-  padding:28px 0;
-  border-top:1px solid var(--line);
-  color:rgba(242,238,252,.65);
-  background:rgba(7,6,11,.60);
+.brand .word{
+  font-family:ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-size:.96rem;
+  letter-spacing:.8px;
+  white-space:nowrap;
 }
 
-.wa-float{
-  position:fixed;right:18px;bottom:18px;z-index:60;
+.menu{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  align-items:center;
+  justify-content:flex-end;
+}
+
+.menu a{
+  padding:9px 11px;
   border-radius:999px;
-  padding:12px 14px;
-  background:linear-gradient(135deg, rgba(216,179,90,.94), rgba(169,139,255,.86));
-  color:#08060f;
-  font-weight:950;
-  box-shadow:var(--shadow);
-  border:0;
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  border:1px solid transparent;
+  color:rgba(242,238,252,.82);
+  font-family:ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-size:.95rem;
 }
-.wa-float:hover{transform:translateY(-1px)}
+
+.menu a:hover{
+  border-color:var(--line);
+  background:rgba(16,12,26,.44);
+}
 
 /* =========================
-   PER-PAGE BACKGROUNDS
+   BUTTONS / CARDS
 ========================= */
-
-/* OSTATNÉ stránky – ponechané, ale opravujeme selektory na body.<class> */
-body.page-ocista,
-body.page-postup,
-body.page-reiki{
-  background-repeat:no-repeat;
-  background-position:center top;
-  background-size:cover;
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:12px 14px;
+  border-radius:14px;
+  border:1px solid rgba(216,179,90,.36);
+  background:rgba(16,12,26,.62);
+  color:var(--text);
+  box-shadow:0 10px 26px rgba(0,0,0,.35);
+  font-family:ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 }
 
-/* Poznámka: toto prepisuje body background ako celok.
-   Ak chceš page obrázky a súčasne zachovať gradienty, spravíme to cez ďalšiu vrstvu (poviem ti). */
-body.page-ocista{background-image:url("bg-ocista.png")}
-body.page-postup{background-image:url("bg-postup.png")}
-body.page-reiki{background-image:url("bg-reiki.png")}
+.btn:hover{
+  transform:translateY(-1px);
+}
 
-/* KONTAKT: čierne boky (správne zacielené na body.page-kontakt) */
-body.page-kontakt{
+.btn.row{
+  width:100%;
+}
+
+.btn.primary{
+  background:linear-gradient(135deg, rgba(216,179,90,.95), rgba(169,139,255,.86));
+  color:#08060f;
+  font-weight:900;
+  border:0;
+}
+
+.btn.ghost{
+  border-color:var(--line);
+  background:rgba(16,12,26,.34);
+}
+
+.card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:20px;
+  box-shadow:var(--shadow);
+}
+
+.card.soft{
+  background:linear-gradient(180deg, var(--cardSoftTop), var(--cardSoftBot));
+}
+
+.hr{
+  height:1px;
+  background:var(--line);
+  margin:16px 0;
+}
+
+.pillrow{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:12px;
+}
+
+/* =========================
+   KONTAKT – čierne boky
+========================= */
+.page-kontakt{
   background:#000 url("bg-kontakt.png") no-repeat center top;
   background-size:75% auto;
 }
 
 @media(max-width:768px){
-  body.page-kontakt{ background-size:95% auto; }
+  .page-kontakt{
+    background-size:95% auto;
+  }
 }
 
 /* =========================
-   OVERLAY (dym) – iba raz, bez duplicít
+   OVERLAY (dym)
 ========================= */
 body::before{
   content:"";
@@ -153,53 +246,62 @@ body::before{
     rgba(0,0,0,.78)
   );
   pointer-events:none;
-  z-index:0;
+  z-index:-1;
 }
 
-/* Home: čierne pozadie POD hero */
-body.page-home main{
-  background:#000;
-  position:relative;
-  z-index:1;
+/* na KONTAKT vypneme overlay */
+.page-kontakt::before{
+  background:none !important;
 }
-
-/* Ak chceš, aby main bol nad overlay vždy (bez ohľadu na stránku), môžeš použiť toto:
-main{ position:relative; z-index:1; }
-A potom len na home nastaviť background:#000; */
-
-/* na KONTAKT vypneme overlay, aby boky neboli sivé */
-body.page-kontakt::before{ background:none !important; }
 
 @media(max-width:768px){
-  body::before{position:absolute}
+  body::before{
+    position:absolute;
+  }
 }
 
 /* =========================
    RESPONSIVE
 ========================= */
 @media(max-width:900px){
-  .nav-inner{flex-wrap:wrap;gap:10px}
-  .menu{justify-content:flex-start}
+  .nav-inner{
+    flex-wrap:wrap;
+    gap:10px;
+  }
+
+  .menu{
+    justify-content:flex-start;
+  }
 }
 
 @media(max-width:600px){
-  .container{padding:0 16px}
-  .pillrow{display:grid;grid-template-columns:1fr}
-  .pillrow .btn{width:100%}
+  .container{
+    padding:0 16px;
+  }
+
+  .pillrow{
+    display:grid;
+    grid-template-columns:1fr;
+  }
+
+  .pillrow .btn{
+    width:100%;
+  }
 }
 
-/* mobile hero */
+/* =========================
+   MOBILE HERO
+========================= */
 @media(max-width:768px){
   .hero{
     --hero-bg:url("exorcisti-mobile.png");
     min-height:90vh;
     padding:24px 0;
   }
+
   .hero::before{
     background-position:50% 20%;
     opacity:.65;
     filter:contrast(140%) brightness(92%);
   }
 }
-
-

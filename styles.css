@@ -18,16 +18,6 @@
 
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
-body{
-  color:var(--text);
-  font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
-  line-height:1.65;
-  background:
-    radial-gradient(900px 520px at 20% -10%, rgba(169,139,255,.18), transparent 60%),
-    radial-gradient(900px 520px at 80% 0%, rgba(216,179,90,.14), transparent 60%),
-    radial-gradient(900px 520px at 55% 120%, rgba(255,77,109,.10), transparent 65%),
-    linear-gradient(180deg, var(--bg), var(--bg2));
-}
 
 a{color:inherit;text-decoration:none}
 .container{max-width:var(--max);margin:0 auto;padding:0 18px}
@@ -115,45 +105,6 @@ p{margin:0 0 12px}
   .grid-2,.grid-3{grid-template-columns:1fr}
 }
 
-/* HERO — výraznejší obrázok + správne 3 vrstvy pozadia */
-.hero{
-  --hero-bg: url('exorcisti.png');
-}
-
-  padding:82px 0 56px;
-  position:relative;
-  overflow:hidden;
-  min-height:100vh;
-}
-.hero::before{
-  content:"";
-  position:absolute;
-  inset:-40px;
-  background:
-    radial-gradient(900px 520px at 25% 10%, rgba(216,179,90,.18), transparent 60%),
-    radial-gradient(900px 520px at 70% 20%, rgba(169,139,255,.20), transparent 60%),
-    var(--hero-bg, none);
-  /* 3 hodnoty = 3 vrstvy */
-  background-size: auto, auto, cover;
-  background-repeat:no-repeat;
-  background-position: 0 0, 0 0, 50% 45%;
-
-  /* výzor obrázka */
-  opacity:.52;
-  filter: contrast(145%) brightness(88%) saturate(115%);
-  box-shadow: inset 0 0 140px rgba(255,220,150,.10);
-}
-.hero::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background: linear-gradient(
-    90deg,
-    rgba(7,6,11,.82) 0%,
-    rgba(7,6,11,.50) 46%,
-    rgba(7,6,11,.82) 100%
-  );
-}
 .hero > .container{position:relative;z-index:1}
 
 .sigils{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
@@ -254,54 +205,29 @@ body{
   font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
   line-height:1.65;
 
-  /* vrstvy: efekty hore, obrázok úplne dole */
-  background-image:
+  /* obrázok + tvoje efekty */
+  background:
+    url("bg-home.png") center/cover no-repeat,
     radial-gradient(900px 520px at 20% -10%, rgba(169,139,255,.18), transparent 60%),
     radial-gradient(900px 520px at 80% 0%, rgba(216,179,90,.14), transparent 60%),
     radial-gradient(900px 520px at 55% 120%, rgba(255,77,109,.10), transparent 65%),
-    linear-gradient(180deg, rgba(7,6,11,.55), rgba(12,8,20,.55)),
-
-    url("bg-home.png");
-
-  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
-  background-position:
-    20% -10%,
-    80% 0%,
-    55% 120%,
-    0 0,
-    center;
-
-  background-size:
-    900px 520px,
-    900px 520px,
-    900px 520px,
-    100% 100%,
-    cover;
+    linear-gradient(180deg, rgba(7,6,11,.55), rgba(12,8,20,.55));
 }
 
-/* MOBIL: ukáž viac z obrázka */
+
 @media (max-width: 768px){
   body{
-    background-position:
-      20% -10%,
-      80% 0%,
-      55% 120%,
-      0 0,
-      top center;
-
-    /* posledná vrstva = bg obrázok */
-    background-size:
-      900px 520px,
-      900px 520px,
-      900px 520px,
-      100% 100%,
-      contain;
-
-    /* aby nevznikalo "opakované tapetovanie" */
-    background-repeat: no-repeat;
-    background-color: #07060b; /* keď contain nechá okraje */
+    background:
+      url("bg-home.png") top center/contain no-repeat,
+      radial-gradient(900px 520px at 20% -10%, rgba(169,139,255,.18), transparent 60%),
+      radial-gradient(900px 520px at 80% 0%, rgba(216,179,90,.14), transparent 60%),
+      radial-gradient(900px 520px at 55% 120%, rgba(255,77,109,.10), transparent 65%),
+      linear-gradient(180deg, rgba(7,6,11,.85), rgba(12,8,20,.85));
+    background-color:#07060b;
   }
 }
+
+
 
 
 

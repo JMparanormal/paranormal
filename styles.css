@@ -230,6 +230,12 @@ body{
   }
 }
 
+.hero-intro{
+  margin-bottom:16px; /* oddelí to od gridu */
+}
+.hero-intro h1{ margin-bottom:10px; }
+.hero-intro .small{ margin:0; }
+
 
 
 

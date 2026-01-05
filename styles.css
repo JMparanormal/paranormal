@@ -246,17 +246,63 @@ textarea{min-height:150px;resize:vertical}
   }
 }
 
-body{ outline: 10px solid lime !important; }
 
-body {
-  margin: 0;
-  min-height: 100vh;
+body{
+  margin:0;
+  min-height:100vh;
+  color:var(--text);
+  font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
+  line-height:1.65;
 
-  background-image: url("/bg-home.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  /* vrstvy: efekty hore, obrázok úplne dole */
+  background-image:
+    radial-gradient(900px 520px at 20% -10%, rgba(169,139,255,.18), transparent 60%),
+    radial-gradient(900px 520px at 80% 0%, rgba(216,179,90,.14), transparent 60%),
+    radial-gradient(900px 520px at 55% 120%, rgba(255,77,109,.10), transparent 65%),
+    linear-gradient(180deg, var(--bg), var(--bg2)),
+    url("bg-home.png");
+
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+  background-position:
+    20% -10%,
+    80% 0%,
+    55% 120%,
+    0 0,
+    center;
+
+  background-size:
+    900px 520px,
+    900px 520px,
+    900px 520px,
+    100% 100%,
+    cover;
 }
+
+/* MOBIL: ukáž viac z obrázka */
+@media (max-width: 768px){
+  body{
+    background-position:
+      20% -10%,
+      80% 0%,
+      55% 120%,
+      0 0,
+      top center;
+
+    /* posledná vrstva = bg obrázok */
+    background-size:
+      900px 520px,
+      900px 520px,
+      900px 520px,
+      100% 100%,
+      contain;
+
+    /* aby nevznikalo "opakované tapetovanie" */
+    background-repeat: no-repeat;
+    background-color: #07060b; /* keď contain nechá okraje */
+  }
+}
+
+
 
 
 

@@ -373,8 +373,14 @@ body::before{
 }
 
 
-body{
+main{
   background:#000;
+  position:relative;
+  z-index:1;
+}
+
+body::before{
+  z-index:0;
 }
 
 

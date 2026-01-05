@@ -259,7 +259,8 @@ body{
     radial-gradient(900px 520px at 20% -10%, rgba(169,139,255,.18), transparent 60%),
     radial-gradient(900px 520px at 80% 0%, rgba(216,179,90,.14), transparent 60%),
     radial-gradient(900px 520px at 55% 120%, rgba(255,77,109,.10), transparent 65%),
-    linear-gradient(180deg, var(--bg), var(--bg2)),
+    linear-gradient(180deg, rgba(7,6,11,.55), rgba(12,8,20,.55)),
+
     url("bg-home.png");
 
   background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
@@ -301,6 +302,7 @@ body{
     background-color: #07060b; /* keď contain nechá okraje */
   }
 }
+
 
 
 

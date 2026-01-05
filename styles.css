@@ -372,10 +372,12 @@ body::before{
   }
 }
 
-.section-3 {
-  background-color: #000;
-  color: #fff; /* aby bol text čitateľný */
+section.section-3 {
+  background: #000 !important;
+  color: #fff;
 }
+
+
 
 
 

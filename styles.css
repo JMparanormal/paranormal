@@ -1,4 +1,4 @@
-/* styles.css — finálna verzia (OPRAVA: Domov bez duplicitného BG + Kontakt čierne boky) */
+/* styles.css — opravená verzia (gradienty ponechané, home: čierne pod hero) */
 
 :root{
   --bg:#07060b;
@@ -73,128 +73,8 @@ body{
   filter:drop-shadow(0 10px 18px rgba(0,0,0,.55));
 }
 
-.brand .word{
-  font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-  font-size:.96rem;
-  letter-spacing:.8px;
-  white-space:nowrap;
-}
-
-.menu{
-  display:flex;flex-wrap:wrap;gap:10px;
-  align-items:center;justify-content:flex-end;
-}
-
-.menu a{
-  padding:9px 11px;border-radius:999px;
-  border:1px solid transparent;
-  color:rgba(242,238,252,.82);
-  font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-  font-size:.95rem;
-}
-
-.menu a:hover{
-  border-color:var(--line);
-  background:rgba(16,12,26,.44);
-}
-
 /* =========================
-   BUTTONS / CARDS
-========================= */
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;
-  gap:10px;
-  padding:12px 14px;border-radius:14px;
-  border:1px solid rgba(216,179,90,.36);
-  background:rgba(16,12,26,.62);
-  color:var(--text);
-  box-shadow:0 10px 26px rgba(0,0,0,.35);
-  font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-}
-
-.btn:hover{transform:translateY(-1px)}
-.btn.row{width:100%}
-
-.btn.primary{
-  background:linear-gradient(135deg, rgba(216,179,90,.95), rgba(169,139,255,.86));
-  color:#08060f;
-  font-weight:900;
-  border:0;
-}
-
-.btn.ghost{
-  border-color:var(--line);
-  background:rgba(16,12,26,.34);
-}
-
-.card{
-  background:var(--card);
-  border:1px solid var(--line);
-  border-radius:var(--radius);
-  padding:20px;
-  box-shadow:var(--shadow);
-}
-
-.card.soft{
-  background:linear-gradient(180deg, var(--cardSoftTop), var(--cardSoftBot));
-}
-
-.hr{height:1px;background:var(--line);margin:16px 0}
-
-.pillrow{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
-
-/* =========================
-   GRIDS
-========================= */
-.grid-2{display:grid;grid-template-columns:1.05fr .95fr;gap:16px}
-.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-
-@media(max-width:960px){
-  .grid-2,.grid-3{grid-template-columns:1fr}
-}
-
-/* =========================
-   HERO – DOMOV (len tento obrázok)
-========================= */
-.hero{
-  --hero-bg:url("exorcisti.png");
-  padding:82px 0 56px;
-  min-height:100vh;
-  position:relative;
-  overflow:hidden;
-}
-
-.hero::before{
-  content:"";
-  position:absolute;
-  inset:-40px;
-  background:
-    radial-gradient(900px 520px at 25% 10%, rgba(216,179,90,.18), transparent 60%),
-    radial-gradient(900px 520px at 70% 20%, rgba(169,139,255,.20), transparent 60%),
-    var(--hero-bg);
-  background-size:auto,auto,cover;
-  background-repeat:no-repeat;
-  background-position:0 0,0 0,50% 45%;
-  opacity:.55;
-  filter:contrast(145%) brightness(88%) saturate(115%);
-  box-shadow:inset 0 0 140px rgba(255,220,150,.10);
-}
-
-.hero::after{
-  content:"";
-  position:absolute;inset:0;
-  background:linear-gradient(
-    90deg,
-    rgba(7,6,11,.82) 0%,
-    rgba(7,6,11,.50) 46%,
-    rgba(7,6,11,.82) 100%
-  );
-}
-
-.hero > .container{position:relative;z-index:1}
-
-/* =========================
-   UI COMPONENTS
+   (Doplnkové: aby sigils neboli rozbité)
 ========================= */
 .sigils{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
 .sigil{
@@ -207,59 +87,6 @@ body{
   display:inline-flex;align-items:center;gap:8px;
 }
 .sigil svg{width:16px;height:16px;opacity:.9}
-
-.kpi{
-  padding:14px;border-radius:16px;
-  border:1px solid var(--line);
-  background:rgba(16,12,26,.45);
-}
-.kpi strong{
-  display:block;margin-bottom:6px;
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  letter-spacing:.2px;
-}
-
-.list{display:grid;gap:10px;margin:0;padding:0;list-style:none}
-.list li{
-  padding:12px 12px;border-radius:14px;
-  border:1px solid rgba(220,210,255,.14);
-  background:rgba(10,7,17,.45);
-}
-
-.notice{
-  border-left:4px solid rgba(216,179,90,.62);
-  padding:12px 12px;
-  background:rgba(216,179,90,.09);
-  border-radius:14px;
-  color:rgba(242,238,252,.78);
-}
-
-.quote{
-  border-left:4px solid rgba(169,139,255,.56);
-  padding:14px 14px;
-  background:rgba(169,139,255,.08);
-  border-radius:14px;
-  color:rgba(242,238,252,.82);
-}
-
-/* =========================
-   FORMS
-========================= */
-.form{display:grid;gap:12px}
-label{
-  font-size:.95rem;color:var(--muted);
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-}
-input, textarea, select{
-  width:100%;
-  padding:12px 12px;border-radius:14px;
-  border:1px solid rgba(220,210,255,.18);
-  background:rgba(7,6,11,.55);
-  color:var(--text);
-  outline:none;
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-}
-textarea{min-height:150px;resize:vertical}
 
 /* =========================
    FOOTER / FLOAT
@@ -288,40 +115,33 @@ textarea{min-height:150px;resize:vertical}
    PER-PAGE BACKGROUNDS
 ========================= */
 
-/* DOMOV: žiadne page pozadie (aby sa neprekrýval hero) */
-.page-home{
-  background-image:none !important;
-  background-color:transparent !important;
-  background-repeat:initial !important;
-  background-position:initial !important;
-  background-size:initial !important;
-}
-
-/* ostatné stránky */
-.page-ocista,
-.page-postup,
-.page-reiki{
+/* OSTATNÉ stránky – ponechané, ale opravujeme selektory na body.<class> */
+body.page-ocista,
+body.page-postup,
+body.page-reiki{
   background-repeat:no-repeat;
   background-position:center top;
   background-size:cover;
 }
 
-.page-ocista{background-image:url("bg-ocista.png")}
-.page-postup{background-image:url("bg-postup.png")}
-.page-reiki{background-image:url("bg-reiki.png")}
+/* Poznámka: toto prepisuje body background ako celok.
+   Ak chceš page obrázky a súčasne zachovať gradienty, spravíme to cez ďalšiu vrstvu (poviem ti). */
+body.page-ocista{background-image:url("bg-ocista.png")}
+body.page-postup{background-image:url("bg-postup.png")}
+body.page-reiki{background-image:url("bg-reiki.png")}
 
-/* KONTAKT: čierne boky */
-.page-kontakt{
+/* KONTAKT: čierne boky (správne zacielené na body.page-kontakt) */
+body.page-kontakt{
   background:#000 url("bg-kontakt.png") no-repeat center top;
   background-size:75% auto;
 }
 
 @media(max-width:768px){
-  .page-kontakt{ background-size:95% auto; }
+  body.page-kontakt{ background-size:95% auto; }
 }
 
 /* =========================
-   OVERLAY (dym)
+   OVERLAY (dym) – iba raz, bez duplicít
 ========================= */
 body::before{
   content:"";
@@ -333,12 +153,22 @@ body::before{
     rgba(0,0,0,.78)
   );
   pointer-events:none;
-  z-index:-1;
+  z-index:0;
 }
 
+/* Home: čierne pozadie POD hero */
+body.page-home main{
+  background:#000;
+  position:relative;
+  z-index:1;
+}
+
+/* Ak chceš, aby main bol nad overlay vždy (bez ohľadu na stránku), môžeš použiť toto:
+main{ position:relative; z-index:1; }
+A potom len na home nastaviť background:#000; */
 
 /* na KONTAKT vypneme overlay, aby boky neboli sivé */
-.page-kontakt::before{ background:none !important; }
+body.page-kontakt::before{ background:none !important; }
 
 @media(max-width:768px){
   body::before{position:absolute}
@@ -371,22 +201,3 @@ body::before{
     filter:contrast(140%) brightness(92%);
   }
 }
-
-
-main{
-  background:#000;
-  position:relative;
-  z-index:1;
-}
-
-body::before{
-  z-index:0;
-}
-
-
-
-
-
-
-
-

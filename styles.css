@@ -205,6 +205,15 @@ body{
   line-height:1.65;
 
   background-image:
+html,body{margin:0;padding:0}
+body{
+  margin:0;
+  min-height:100vh;
+  color:var(--text);
+  font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
+  line-height:1.65;
+
+  background-image:
     radial-gradient(900px 520px at 20% -10%, rgba(169,139,255,.18), transparent 60%),
     radial-gradient(900px 520px at 80% 0%, rgba(216,179,90,.14), transparent 60%),
     radial-gradient(900px 520px at 55% 120%, rgba(255,77,109,.10), transparent 65%),
@@ -260,6 +269,7 @@ body{
 }
 .hero-intro h1{ margin-bottom:10px; }
 .hero-intro .small{ margin:0; }
+
 
 
 

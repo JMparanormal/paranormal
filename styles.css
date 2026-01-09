@@ -226,7 +226,7 @@ body{
     900px 520px,
     900px 520px,
     100% 100%,
-    cover;
+    100% auto;
 
   background-attachment:scroll;
   background-color:#07060b;
@@ -256,6 +256,7 @@ body{
 }
 .hero-intro h1{ margin-bottom:10px; }
 .hero-intro .small{ margin:0; }
+
 
 
 

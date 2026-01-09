@@ -246,7 +246,7 @@ body{
     80% 0%,
     55% 120%,
     0 0,
-    center 10%;         /* jemný posun výrezu */
+    center;         /* jemný posun výrezu */
 }
 
 
@@ -344,6 +344,7 @@ body{
     height: 0;
   }
 }
+
 
 
 

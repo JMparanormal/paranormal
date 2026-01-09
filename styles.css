@@ -216,7 +216,7 @@ body{
     no-repeat,
     no-repeat,
     no-repeat,
-    repeat-y;
+    no-repeat;
 
   background-position:
     20% -10%,
@@ -230,7 +230,7 @@ body{
     900px 520px,
     900px 520px,
     100% 100%,
-    100% auto; 
+    cover; 
 background-color:#07060b;
 }
 
@@ -352,6 +352,7 @@ background-color:#07060b;
     height: 0;
   }
 }
+
 
 
 

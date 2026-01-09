@@ -225,8 +225,8 @@ body{
     900px 520px,
     900px 520px,
     100% 100%,
-    100% auto; 
-
+    cover; 
+background-color:#07060b;
 }
 
 /* 👇 LEN PRE DOMOV A OČISTU */
@@ -347,6 +347,7 @@ body{
     height: 0;
   }
 }
+
 
 
 

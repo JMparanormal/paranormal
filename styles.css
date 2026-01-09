@@ -211,21 +211,26 @@ body{
     linear-gradient(180deg, rgba(7,6,11,.65), rgba(12,8,20,.65)),
     url("/bg-home.png");
 
-  background-repeat:no-repeat;
+  background-repeat:
+    no-repeat,
+    no-repeat,
+    no-repeat,
+    no-repeat,
+    repeat-y; ;
 
   background-position:
     20% -10%,
     80% 0%,
     55% 120%,
     0 0,
-    center top;
+    top center;
 
   background-size:
     900px 520px,
     900px 520px,
     900px 520px,
     100% 100%,
-    cover; 
+    100% auto; 
 background-color:#07060b;
 }
 
@@ -347,6 +352,7 @@ background-color:#07060b;
     height: 0;
   }
 }
+
 
 
 

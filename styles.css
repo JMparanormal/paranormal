@@ -190,11 +190,7 @@ textarea{min-height:150px;resize:vertical}
 
 .pillrow{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
 
-@media (max-width: 768px){
-  .hero{
-    --hero-bg: url('exorcisti-mobile.png');
-  }
-}
+
 
 html,body{margin:0;padding:0}
 body{
@@ -231,7 +227,8 @@ body{
     900px 520px,
     100% 100%,
     100% auto; 
-background-color:#07060b;
+  background-attachment: scroll; /* voliteľné */
+  background-color:#07060b;
 }
 
 
@@ -332,6 +329,7 @@ background-color:#07060b;
     height: 0;
   }
 }
+
 
 
 

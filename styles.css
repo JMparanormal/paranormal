@@ -216,7 +216,7 @@ body{
     no-repeat,
     no-repeat,
     no-repeat,
-    repeat-y; ;
+    repeat-y;
 
   background-position:
     20% -10%,
@@ -352,6 +352,7 @@ background-color:#07060b;
     height: 0;
   }
 }
+
 
 
 

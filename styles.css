@@ -238,7 +238,7 @@ body{
     radial-gradient(900px 520px at 80% 0%, rgba(216,179,90,.14), transparent 60%),
     radial-gradient(900px 520px at 55% 120%, rgba(255,77,109,.10), transparent 65%),
     linear-gradient(180deg, rgba(7,6,11,.65), rgba(12,8,20,.65)),
-    url("/bg-home.png");
+    url("/bg-home-mobile.png");
 
   background-repeat:
     no-repeat,
@@ -306,6 +306,7 @@ body{
   /* voliteľné: skryje scrollbar (nie všade) */
   .menu::-webkit-scrollbar{ height: 0; }
 }
+
 
 
 

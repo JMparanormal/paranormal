@@ -239,12 +239,22 @@ body{
       linear-gradient(180deg, rgba(7,6,11,.45), rgba(12,8,20,.45)),
       url("/bg-home-mobile.png");
 
-  background-repeat: no-repeat;
-    background-position: center top;
-    background-size: cover;   /* obrazok vyplní obrazovku */
+    background-repeat: no-repeat;
+
+    background-position:
+      50% -10%,
+      0 0,
+      center top;
+
+    background-size:
+      700px 420px,
+      100% 100%,
+      cover;
+
     background-color:#07060b;
   }
 }
+
 
 
 
@@ -256,6 +266,7 @@ body{
 }
 .hero-intro h1{ margin-bottom:10px; }
 .hero-intro .small{ margin:0; }
+
 
 
 

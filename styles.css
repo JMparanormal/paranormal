@@ -232,17 +232,36 @@ body{
 }
 
 @media (max-width: 768px){
-  body{
-    background-image:
+body{
+  background-image:
+    radial-gradient(900px 520px at 20% -10%, rgba(169,139,255,.18), transparent 60%),
+    radial-gradient(900px 520px at 80% 0%, rgba(216,179,90,.14), transparent 60%),
+    radial-gradient(900px 520px at 55% 120%, rgba(255,77,109,.10), transparent 65%),
+    linear-gradient(180deg, rgba(7,6,11,.65), rgba(12,8,20,.65)),
+    url("/bg-home.png");
 
-      url("/bg-home-mobile.png");
+  background-repeat:
+    no-repeat,
+    no-repeat,
+    no-repeat,
+    no-repeat,
+    repeat-y;              /* <- len obrázok sa opakuje dole */
 
-  background-repeat: repeat-y;
-    background-position: center top;
-    background-size: 100% auto;   
-    background-color:#07060b;
-  }
+  background-position:
+    20% -10%,
+    80% 0%,
+    55% 120%,
+    0 0,
+    top center;
+
+  background-size:
+    900px 520px,
+    900px 520px,
+    900px 520px,
+    100% 100%,
+    100% auto;            /* <- obrázok na šírku, opakovanie dole */
 }
+
 
 
 
@@ -254,6 +273,7 @@ body{
 }
 .hero-intro h1{ margin-bottom:10px; }
 .hero-intro .small{ margin:0; }
+
 
 
 

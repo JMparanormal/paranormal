@@ -230,7 +230,7 @@ body{
     900px 520px,
     900px 520px,
     100% 100%,
-    100% auto; 
+    cover; 
 background-color:#07060b;
 }
 
@@ -249,7 +249,7 @@ background-color:#07060b;
     55% 120%,
     0 0,
     center top;
-]
+}
 .page-ocista{
   background-size:
     900px 520px,
@@ -409,6 +409,7 @@ background-color:#07060b;
     height: 0;
   }
 }
+
 
 
 

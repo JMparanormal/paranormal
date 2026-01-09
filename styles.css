@@ -275,6 +275,38 @@ body{
 .hero-intro .small{ margin:0; }
 
 
+@media (max-width: 768px){
+
+  /* užšia horná lišta */
+  .nav-inner{
+    padding: 8px 0;      /* bolo 14px 0 */
+    gap: 8px;
+  }
+
+  /* nech je logo kompaktnejšie */
+  .brand .word{ font-size: .88rem; }
+  .brand svg{ width: 28px; height: 28px; }
+
+  /* menu v jednom riadku */
+  .menu{
+    flex-wrap: nowrap;         /* dôležité: zruší zalamovanie */
+    gap: 8px;
+    overflow-x: auto;          /* ak sa nezmestí, posúva sa do strán */
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+  }
+
+  /* položky menu nech sú menšie, aby sa zmestili */
+  .menu a{
+    padding: 6px 10px;
+    font-size: .85rem;
+    flex: 0 0 auto;            /* nech sa nesťahujú divne */
+  }
+
+  /* voliteľné: skryje scrollbar (nie všade) */
+  .menu::-webkit-scrollbar{ height: 0; }
+}
+
 
 
 

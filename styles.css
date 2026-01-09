@@ -238,7 +238,7 @@ body{
     900px 520px,
     900px 520px,
     100% 100%,
-    cover;
+    100% auto;
 
   background-position:
     20% -10%,
@@ -255,7 +255,7 @@ body{
     900px 520px,
     900px 520px,
     100% 100%,
-    80% auto ;
+    100% auto ;
 
   background-position:
     20% -10%,
@@ -272,7 +272,7 @@ body{
     900px 520px,
     900px 520px,
     100% 100%,
-    cover;
+    100% auto;
 
   background-position:
     20% -10%,
@@ -289,7 +289,7 @@ body{
     900px 520px,
     900px 520px,
     100% 100%,
-    cover;
+    100% auto;
 
   background-position:
     20% -10%,
@@ -306,7 +306,7 @@ body{
     900px 520px,
     900px 520px,
     100% 100%,
-    cover;
+    100% auto;
 
   background-position:
     20% -10%,
@@ -413,6 +413,7 @@ body{
     height: 0;
   }
 }
+
 
 
 

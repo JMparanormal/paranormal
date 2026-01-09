@@ -230,7 +230,10 @@ body{
 
 /* 👇 LEN PRE DOMOV A OČISTU */
 .page-home,
-.page-ocista{
+.page-ocista
+.page-postup,
+.page-reiki,
+.page-kontakt{
   background-size:
     900px 520px,
     900px 520px,
@@ -343,6 +346,7 @@ body{
     height: 0;
   }
 }
+
 
 
 

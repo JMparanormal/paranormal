@@ -231,6 +231,90 @@ body{
   background-color:#07060b;
 }
 
+/* 👇 LEN PRE DOMOV */
+.page-home{
+  background-size:
+    900px 520px,
+    900px 520px,
+    900px 520px,
+    100% 100%,
+    cover;
+
+  background-position:
+    20% -10%,
+    80% 0%,
+    55% 120%,
+    0 0,
+    center top;
+}
+
+/* 👇 LEN PRE OČISTU */
+.page-ocista{
+  background-size:
+    900px 520px,
+    900px 520px,
+    900px 520px,
+    100% 100%,
+    80% auto ;
+
+  background-position:
+    20% -10%,
+    80% 0%,
+    55% 120%,
+    0 0,
+    center top;
+}
+
+/* 👇 LEN PRE POSTUP */
+.page-postup{
+  background-size:
+    900px 520px,
+    900px 520px,
+    900px 520px,
+    100% 100%,
+    cover;
+
+  background-position:
+    20% -10%,
+    80% 0%,
+    55% 120%,
+    0 0,
+    center top;
+}
+
+/* 👇 LEN PRE REIKI */
+.page-reiki{
+  background-size:
+    900px 520px,
+    900px 520px,
+    900px 520px,
+    100% 100%,
+    cover;
+
+  background-position:
+    20% -10%,
+    80% 0%,
+    55% 120%,
+    0 0,
+    center top;
+}
+
+/* 👇 LEN PRE KONTAKT */
+.page-kontakt{
+  background-size:
+    900px 520px,
+    900px 520px,
+    900px 520px,
+    100% 100%,
+    cover;
+
+  background-position:
+    20% -10%,
+    80% 0%,
+    55% 120%,
+    0 0,
+    center top;
+}
 
 
 @media (max-width: 768px){
@@ -329,6 +413,7 @@ body{
     height: 0;
   }
 }
+
 
 
 

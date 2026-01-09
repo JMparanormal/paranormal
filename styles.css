@@ -230,7 +230,7 @@ body{
     900px 520px,
     900px 520px,
     100% 100%,
-    cover; 
+    100% auto; 
 background-color:#07060b;
 }
 
@@ -352,6 +352,7 @@ background-color:#07060b;
     height: 0;
   }
 }
+
 
 
 

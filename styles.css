@@ -218,7 +218,7 @@ body{
     80% 0%,
     55% 120%,
     0 0,
-    center 0%;
+    center top;
 
   background-size:
     900px 520px,
@@ -347,6 +347,7 @@ background-color:#07060b;
     height: 0;
   }
 }
+
 
 
 

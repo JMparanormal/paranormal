@@ -197,7 +197,6 @@ textarea{min-height:150px;resize:vertical}
 }
 
 html,body{margin:0;padding:0}
-
 body{
   margin:0;
   min-height:100vh;
@@ -213,6 +212,7 @@ body{
     url("/bg-home.png");
 
   background-repeat:no-repeat;
+
   background-position:
     20% -10%,
     80% 0%,
@@ -229,25 +229,26 @@ body{
 
   background-attachment:scroll;
   background-color:#07060b;
+}
 
-  .page-home,
+/* 👇 LEN PRE DOMOV A OČISTU */
+.page-home,
 .page-ocista{
   background-size:
     900px 520px,
     900px 520px,
     900px 520px,
     100% 100%,
-    80% auto;     /* 👈 priblíženie len pre Domov a Očistu */
-  
+    120% auto;          /* priblíženie (skús 115–130) */
+
   background-position:
     20% -10%,
     80% 0%,
     55% 120%,
     0 0,
-    center;    /* 👈 jemný posun, aby sedel výrez */
+    center 10%;         /* jemný posun výrezu */
 }
 
-}
 
 @media (max-width: 768px){
 body{
@@ -343,6 +344,7 @@ body{
     height: 0;
   }
 }
+
 
 
 

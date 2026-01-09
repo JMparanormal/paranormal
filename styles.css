@@ -195,11 +195,7 @@ textarea{min-height:150px;resize:vertical}
 
 @media (max-width: 768px){
   body{
-      margin:0;
-  min-height:100vh;
-  color:var(--text);
-  font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
-  line-height:1.65;
+
   background-image: url("/bg-home-mobile.png");
   background-repeat: repeat-y;
   background-size: 100% auto;    /* vždy na šírku, opakuje sa dole */
@@ -218,6 +214,7 @@ textarea{min-height:150px;resize:vertical}
 }
 .hero-intro h1{ margin-bottom:10px; }
 .hero-intro .small{ margin:0; }
+
 
 
 

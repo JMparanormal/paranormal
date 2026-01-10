@@ -389,30 +389,41 @@ body{
     height: 28px;
   }
 
-  /* menu v jednom vodorovnom riadku */
+    /* menu ako 2 riadky (3 + 3) */
   .menu{
     width: 100%;
-    display: flex;
-    justify-content: center;
-    flex-wrap: nowrap;        /* nezalamovať do ďalšieho riadku */
-    gap: 8px;
-    overflow-x: auto;         /* ak sa nezmestí, dá sa posúvať */
-    white-space: nowrap;
-    -webkit-overflow-scrolling: touch;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px 8px;                 /* row-gap / column-gap */
+    justify-items: center;
+    align-items: center;
   }
 
   /* odkazy menšie, aby sa zmestili */
   .menu a{
     padding: 6px 10px;
     font-size: .85rem;
-    flex: 0 0 auto;
+    white-space: nowrap;
+    width: 100%;
+    text-align: center;
   }
 
-  /* skrytie scroll baru (voliteľné) */
-  .menu::-webkit-scrollbar{
-    height: 0;
-  }
+  /* Rozloženie položiek do 2 riadkov */
+  .menu a:nth-child(1){ grid-column: 1; grid-row: 1; } /* Domov */
+  .menu a:nth-child(2){ grid-column: 2; grid-row: 1; } /* Očista */
+  .menu a:nth-child(3){ grid-column: 3; grid-row: 1; } /* Postup pri očiste */
+
+  .menu a:nth-child(4){ grid-column: 1; grid-row: 2; } /* Reiki */
+  .menu a:nth-child(5){ grid-column: 2; grid-row: 2; } /* Anjelské písmo */
+  .menu a:nth-child(6){ grid-column: 3; grid-row: 2; } /* Kontakt */
+
+ 
 }
+
+  .menu a.btn{
+    padding: 6px 10px;
+    border-radius: 999px;
+  }
 
 
 
